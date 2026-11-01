@@ -51,7 +51,7 @@ WORKDIR /app
 ENV NODE_ENV=production \
     LISTEN_PORT=3000 \
     APP_VERSION=${APP_VERSION}
-LABEL org.opencontainers.image.source="https://github.com/Dejniel/Nevu-Next-Plex-WebUI" \
+LABEL org.opencontainers.image.source="https://github.com/Dejniel/FriWatch-Plex-WebUI" \
       org.opencontainers.image.title="FriWatch" \
       org.opencontainers.image.licenses="GPL-3.0"
 
