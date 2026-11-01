@@ -1,1 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96"><rect width="96" height="96" rx="22" fill="#17181C"/><g fill="#FFC222" transform="translate(4 16)"><path d="M6 10H31L28 19H15V27H27L24 36H15V54H6Z M35 10H44L49 37L55 20H62L68 37L73 10H82L73 54H64L58.5 38L53 54H44Z"/></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" role="img" aria-label="FriWatch">
+  <metadata>{"sourceTypeface":{"name":"Unitblock","author":"GGBotNet","license":"CC0-1.0","url":"https://www.fontspace.com/unitblock-font-f104834"},"outlineChange":"30% thicker stems, with preserved counters","glyphSource":"friwatch-logo.svg"}</metadata>
+  <rect width="96" height="96" rx="22" fill="#17181C"/>
+  <g transform="translate(8 76.1583) scale(0.00981836 -0.00981836)">
+    <path data-letter="F" fill="#F4F4F5" d="M932 2402V0H0V5736H3298V4804H932V3334H2940V2402Z"/>
+    <path data-letter="W" fill="#FFC222" transform="translate(3918 0)" d="M0 0V5736H932V932H1649V5736H2581V725Q2845 755 3043 895Q3298 1073 3298 1326V5736H4230V1486Q4230 871 3778 435Q3326 0 2474 0Z"/>
+  </g>
+</svg>
