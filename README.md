@@ -2,7 +2,7 @@
 
 FriWatch is a modern, self-hosted alternative web interface for Plex Media Server. It gives movie and TV libraries a faster, cleaner browser experience with Plex Home profiles, adaptive trailers, configurable library views, rich title details, multi-version playback, ratings and reviews, and practical server administration. It runs in Docker and keeps Plex as the media server and source of truth.
 
-![FriWatch interface preview](assets/preview.jpg)
+![FriWatch home screen with a local Plex demo library](assets/preview.jpg)
 
 ## Why FriWatch exists
 
