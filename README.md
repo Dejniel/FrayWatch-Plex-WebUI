@@ -142,9 +142,7 @@ FriWatch can use its persistent self-signed certificate or existing mounted PEM 
 
 Bug reports and focused pull requests are welcome. Before implementing a large behavioral or architectural change, [open an issue](https://github.com/Dejniel/FriWatch-Plex-WebUI/issues) so the direction and Plex API assumptions can be discussed first.
 
-Planned product work is tracked in the [product roadmap](docs/roadmap.md), while
-technical cleanup is tracked separately in the
-[refactoring roadmap](docs/refactoring-roadmap.md).
+Planned product work is tracked in the [product roadmap](docs/roadmap.md).
 
 Good contributions should:
 
