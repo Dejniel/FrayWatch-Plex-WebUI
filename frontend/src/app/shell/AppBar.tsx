@@ -266,11 +266,11 @@ S - Skip onscreen markers (intro, credits, etc)
             src="/friwatch-logo.svg"
             alt="FriWatch"
             style={{
-              width: isMobile
-                ? "clamp(118px, 36vw, 150px)"
-                : "clamp(120px, 14vw, 200px)",
+              width: "auto",
               maxWidth: "100%",
-              height: "auto",
+              height: isMobile
+                ? "clamp(29.5px, 9vw, 37.5px)"
+                : "clamp(30px, 3.0625vw, 43.75px)",
               objectFit: "contain",
             }}
           />
