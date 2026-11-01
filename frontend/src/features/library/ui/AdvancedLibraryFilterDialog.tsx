@@ -3,7 +3,7 @@ import type {
   LibraryFilterClause,
   LibraryFilterMode,
   LibraryFilterOperator,
-} from "@nevu/contracts";
+} from "@friwatch/contracts";
 import { AddRounded, DeleteOutlineRounded } from "@mui/icons-material";
 import {
   Autocomplete,

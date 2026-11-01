@@ -5,7 +5,7 @@ import type {
   LibraryItemType,
   LibrarySort,
   LibrarySource,
-} from "@nevu/contracts";
+} from "@friwatch/contracts";
 import { normalizeLibraryFilterExpression } from "./libraryFilterExpression";
 
 export const LIBRARY_RANGE_SIZE = 64;

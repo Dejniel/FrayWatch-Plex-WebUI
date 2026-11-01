@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import type { PreferenceChanges } from "@nevu/contracts";
+import type { PreferenceChanges } from "@friwatch/contracts";
 import type { LibraryInput } from "entities/library/model";
 import {
   usePreferenceDraft,

@@ -20,13 +20,13 @@ export interface PlexAuthUrlOptions {
 }
 
 function getClientIdentifier(): string {
-  return localStorage.getItem("clientID") ?? "nevu-web";
+  return localStorage.getItem("clientID") ?? "friwatch-web";
 }
 
 function plexHeaders(token?: string, accept = "application/json") {
   return {
     Accept: accept,
-    "X-Plex-Product": "NEVU",
+    "X-Plex-Product": "FriWatch",
     "X-Plex-Version": APP_VERSION,
     "X-Plex-Client-Identifier": getClientIdentifier(),
     ...(token ? { "X-Plex-Token": token } : {}),
@@ -58,7 +58,7 @@ export function buildPlexAuthUrl({
   const params = new URLSearchParams({
     clientID: clientIdentifier,
     code: pinCode,
-    "context[device][product]": "NEVU",
+    "context[device][product]": "FriWatch",
     forwardUrl,
   });
 
@@ -80,7 +80,7 @@ export async function getPin(): Promise<Plex.TokenData> {
     `https://plex.tv/api/v2/pins?${queryString({
       strong: true,
       "X-Plex-Client-Identifier": getClientIdentifier(),
-      "X-Plex-Product": "NEVU",
+      "X-Plex-Product": "FriWatch",
     })}`,
     undefined,
     { headers: { Accept: "application/json" } },
@@ -169,7 +169,7 @@ async function getServerMachineIdentifier(token: string): Promise<string> {
   const data = response.data as { MediaContainer?: { machineIdentifier?: string } };
   const identifier = data?.MediaContainer?.machineIdentifier;
   if (response.status >= 500)
-    throw new Error("Nevu cannot reach the configured Plex server.");
+    throw new Error("FriWatch cannot reach the configured Plex server.");
   if (response.status !== 200 || !identifier)
     throw new Error("The selected profile cannot access this Plex server.");
   return identifier;

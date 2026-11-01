@@ -12,7 +12,7 @@ declare namespace PerPlexed {
     }
 
     interface ConfigOptions {
-        DISABLE_NEVU_SYNC: boolean;
+        DISABLE_WATCH_TOGETHER: boolean;
     }
 
     namespace Sync {

@@ -1,7 +1,7 @@
 import { notifyManager } from "@tanstack/react-query";
 import { act } from "react";
 import { createRoot, type Root } from "react-dom/client";
-import { normalizePlexPreferences } from "@nevu/contracts";
+import { normalizePlexPreferences } from "@friwatch/contracts";
 import {
   AuthStorage,
   useAuthSession,

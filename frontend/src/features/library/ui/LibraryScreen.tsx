@@ -4,7 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { ActionableMediaCard } from "features/media-actions/public";
 import { useInView } from "react-intersection-observer";
-import type { LibrarySort } from "@nevu/contracts";
+import type { LibrarySort } from "@friwatch/contracts";
 import LibrarySortDropDown, {
   normalizeLibrarySort,
   sortMetadata,

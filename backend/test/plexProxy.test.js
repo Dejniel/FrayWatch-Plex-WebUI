@@ -88,19 +88,19 @@ test('all proxy routes omit browser ingress addresses while retaining Plex authe
     res.end('ok');
   });
   const headers = {
-    Forwarded: 'for=203.0.113.25;proto=https;host=nevu.example',
+    Forwarded: 'for=203.0.113.25;proto=https;host=friwatch.example',
     'X-Forwarded-For': '203.0.113.25',
-    'X-Forwarded-Host': 'nevu.example',
+    'X-Forwarded-Host': 'friwatch.example',
     'X-Forwarded-Proto': 'https',
     'X-Forwarded-Port': '443',
     'X-Real-IP': '203.0.113.25',
     Cookie: 'private=fixture',
     'X-Plex-Token': 'fixture',
-    'X-Plex-Client-Identifier': 'nevu-fixture',
+    'X-Plex-Client-Identifier': 'friwatch-fixture',
     'X-Plex-Session-Identifier': 'playback-fixture',
     Range: 'bytes=0-1023',
     'If-Range': 'media-fixture',
-    'User-Agent': 'Nevu fixture',
+    'User-Agent': 'FriWatch fixture',
   };
   for (const route of ['dynamic', 'flat', 'metadata']) {
     const response = route === 'metadata'

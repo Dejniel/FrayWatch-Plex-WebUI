@@ -1,5 +1,5 @@
 import type { LibraryType, LibraryField, LibraryFieldType } from "entities/library/model";
-import type { LibraryFilterClause } from "@nevu/contracts";
+import type { LibraryFilterClause } from "@friwatch/contracts";
 import {
   libraryFilterFields,
   libraryFilterIsOperator,

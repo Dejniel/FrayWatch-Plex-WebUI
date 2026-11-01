@@ -2,7 +2,7 @@ import type {
   LibraryFilterClause,
   LibraryFilterExpression,
   LibraryFilterMode,
-} from "@nevu/contracts";
+} from "@friwatch/contracts";
 
 function expressionKey(expression: LibraryFilterExpression) {
   return JSON.stringify(expression);

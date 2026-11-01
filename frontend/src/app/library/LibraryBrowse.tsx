@@ -92,7 +92,7 @@ function BrowsePageSelector({
           },
           "& .MuiButton-contained": {
             backgroundColor: "primary.main",
-            color: "common.white",
+            color: "primary.contrastText",
             borderColor: "primary.main",
             boxShadow: "none",
           },

@@ -4,15 +4,15 @@ set -euo pipefail
 # Generate synthetic files for the standalone Plex test library.
 # Existing files are retained. FFmpeg is only needed on the machine generating samples.
 command -v ffmpeg >/dev/null || { echo 'Install FFmpeg to generate playback samples.' >&2; exit 1; }
-samples_dir="${1:-/tmp/nevu-test-media/PlaybackSamples}"
+samples_dir="${1:-/tmp/friwatch-test-media/PlaybackSamples}"
 mkdir -p "$samples_dir"
-mp4_sample="$samples_dir/Nevu MP4 Sample (2026).mp4"
-long_mp4_sample="$samples_dir/Nevu Long MP4 Sample (2026).mp4"
-mkv_sample="$samples_dir/Nevu MKV Sample (2026).mkv"
-ac3_sample="$samples_dir/Nevu AC3 Sample (2026).mkv"
-hevc_sample="$samples_dir/Nevu HEVC Sample (2026).mkv"
-ass_sample="$samples_dir/Nevu ASS Sample (2026).mkv"
-vp9_sample="$samples_dir/Nevu VP9 Sample (2026).mkv"
+mp4_sample="$samples_dir/FriWatch MP4 Sample (2026).mp4"
+long_mp4_sample="$samples_dir/FriWatch Long MP4 Sample (2026).mp4"
+mkv_sample="$samples_dir/FriWatch MKV Sample (2026).mkv"
+ac3_sample="$samples_dir/FriWatch AC3 Sample (2026).mkv"
+hevc_sample="$samples_dir/FriWatch HEVC Sample (2026).mkv"
+ass_sample="$samples_dir/FriWatch ASS Sample (2026).mkv"
+vp9_sample="$samples_dir/FriWatch VP9 Sample (2026).mkv"
 srt_sample="$samples_dir/Playback.srt"
 ass_subtitle="$samples_dir/Playback.ass"
 
@@ -20,7 +20,7 @@ if [[ ! -f "$srt_sample" ]]; then
   cat > "$srt_sample" <<'SUBTITLES'
 1
 00:00:01,000 --> 00:00:08,000
-Nevu subtitle sample
+FriWatch subtitle sample
 
 2
 00:00:10,000 --> 00:00:23,000

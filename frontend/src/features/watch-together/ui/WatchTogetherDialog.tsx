@@ -52,7 +52,7 @@ export default function WatchTogetherDialog() {
   };
 
   return (
-    <AppDialog open={open} title="Nevu Sync" onClose={() => setOpen(false)}>
+    <AppDialog open={open} title="FriWatch Sync" onClose={() => setOpen(false)}>
       <Box
         sx={{
           width: "100%",

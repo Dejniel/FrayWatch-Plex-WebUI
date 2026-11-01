@@ -2,7 +2,7 @@ import react from "@vitejs/plugin-react";
 import { fileURLToPath, URL } from "node:url";
 import { defineConfig } from "vitest/config";
 
-const backend = process.env.NEVU_DEV_BACKEND ?? "http://localhost:3000";
+const backend = process.env.FRIWATCH_DEV_BACKEND ?? "http://localhost:3000";
 const apiPaths = [
   "/status",
   "/config",
@@ -15,7 +15,7 @@ const apiPaths = [
   "/library-page",
   "/discover",
   "/socket.io",
-  "/nevu-remote",
+  "/friwatch-remote",
 ];
 
 export default defineConfig({

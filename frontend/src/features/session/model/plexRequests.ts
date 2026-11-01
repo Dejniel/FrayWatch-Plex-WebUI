@@ -19,7 +19,7 @@ export function getXPlexProps() {
 
   return {
     "X-Incomplete-Segments": "1",
-    "X-Plex-Product": desktop ? "Nevu Desktop" : "Nevu Web",
+    "X-Plex-Product": "FriWatch",
     "X-Plex-Version": APP_VERSION,
     "X-Plex-Client-Identifier": localStorage.getItem("clientID"),
     "X-Plex-Platform": platformCache.platform?.platform ?? getBrowserName(),
@@ -28,7 +28,7 @@ export function getXPlexProps() {
     "X-Plex-Features": "external-media,indirect-media,hub-style-list",
     "X-Plex-Model": "bundled",
     "X-Plex-Device": desktop ? "Chrome" : getBrowserName(),
-    "X-Plex-Device-Name": platformCache.deviceName || "Nevu Web",
+    "X-Plex-Device-Name": platformCache.deviceName || "FriWatch Web",
     "X-Plex-Device-Screen-Resolution": getScreenResolution(),
     "X-Plex-Token": AuthStorage.getServerToken(),
     "X-Plex-Language": "en",

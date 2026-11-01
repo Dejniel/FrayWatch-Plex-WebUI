@@ -1,5 +1,5 @@
 import { hashKey } from "@tanstack/react-query";
-import { libraryEntryKey } from "@nevu/contracts";
+import { libraryEntryKey } from "@friwatch/contracts";
 import { Box, Skeleton } from "@mui/material";
 import React from "react";
 import { CollectionViewport } from "shared/ui/CollectionViewport";

@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { libraryItemTypeNumbers } from "@nevu/contracts";
+import { libraryItemTypeNumbers } from "@friwatch/contracts";
 import {
   Alert,
   Autocomplete,

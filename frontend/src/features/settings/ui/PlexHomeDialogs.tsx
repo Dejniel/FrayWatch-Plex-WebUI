@@ -209,7 +209,7 @@ export function PlexHomePinEditor({
       {needsCurrent && pinField("Current PIN", currentPin, setCurrentPin, true)}
       {pinField("New four-digit PIN", pin, setPin, !needsCurrent)}
       <Typography variant="body2" color="text.secondary">
-        The PIN is saved by Plex. Nevu does not store it.
+        The PIN is saved by Plex. FriWatch does not store it.
       </Typography>
     </AppDialog>
   );

@@ -1,6 +1,6 @@
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { useEffect, useRef } from "react";
-import type { PlexPreference, PreferenceChanges } from "@nevu/contracts";
+import type { PlexPreference, PreferenceChanges } from "@friwatch/contracts";
 import { serverQueryClient } from "shared/api/queryClient";
 import { useCanManageServer } from "features/session/public";
 import { useServerSession } from "features/session/model";

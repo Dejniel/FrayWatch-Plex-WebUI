@@ -1,4 +1,4 @@
-import { Box, Button, Paper, Typography } from "@mui/material";
+import { alpha, Box, Button, Link, Paper, Typography } from "@mui/material";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import BugReportIcon from "@mui/icons-material/BugReport";
@@ -22,8 +22,8 @@ function SettingsInfo() {
         }}
       >
         <img
-          src="/nevu-next-below.svg"
-          alt="Nevu Next"
+          src="/friwatch-logo.svg"
+          alt="FriWatch"
           style={{
             width: "50%",
             height: "auto",
@@ -42,41 +42,42 @@ function SettingsInfo() {
         }}
       >
         <Typography variant="h4" component="h2" sx={{ mb: 2, fontWeight: 600 }}>
-          About Nevu Next
+          About FriWatch
         </Typography>
 
         <Typography variant="body1" sx={{ mb: 2 }}>
-          Nevu Next Plex WebUI was created and is maintained by{" "}
-          <a
+          FriWatch was created and is maintained by{" "}
+          <Link
             href="https://github.com/Dejniel"
             target="_blank"
             rel="noopener noreferrer"
-            style={{
-              color: "#6366F1",
+            sx={{
+              color: "primary.main",
               textDecoration: "none",
               fontWeight: "bold",
             }}
           >
             Dejniel
-          </a>, with contributions from its open-source community. It began as a
+          </Link>
+          , with contributions from its open-source community. It began as a
           creative response to the lack of a reliable, complete alternative for
           browsing and playing an existing Plex movie and TV library.
         </Typography>
 
         <Typography variant="body1" sx={{ mb: 2 }}>
-          Nevu Next builds on the work of{" "}
-          <a
+          FriWatch builds on the work of{" "}
+          <Link
             href="https://ipmake.dev"
             target="_blank"
             rel="noopener noreferrer"
-            style={{
-              color: "#6366F1",
+            sx={{
+              color: "primary.main",
               textDecoration: "none",
               fontWeight: "bold",
             }}
           >
             Ipmake
-          </a>{" "}
+          </Link>{" "}
           and the contributors to the original Nevu for Plex project. It carries
           that foundation forward while keeping Plex as the media server and
           source of truth.
@@ -113,9 +114,10 @@ function SettingsInfo() {
           sx={{
             mt: 5,
             p: 3,
-            bgcolor: "rgba(99, 102, 241, 0.08)",
+            bgcolor: (theme) => alpha(theme.palette.primary.main, 0.06),
             borderRadius: 2,
-            border: "1px solid rgba(99, 102, 241, 0.2)",
+            border: (theme) =>
+              `1px solid ${alpha(theme.palette.primary.main, 0.2)}`,
             textAlign: "center",
           }}
         >
@@ -124,7 +126,7 @@ function SettingsInfo() {
           />
 
           <Typography variant="h6" sx={{ fontWeight: 600, mb: 1 }}>
-            Fuel the Future of Nevu
+            Fuel the Future of FriWatch
           </Typography>
 
           <Typography variant="body1" sx={{ mb: 2 }}>

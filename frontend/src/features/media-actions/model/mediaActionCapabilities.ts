@@ -1,5 +1,5 @@
 import type { MediaItemData } from "entities/media/model";
-import { isVideoLibraryItemType } from "@nevu/contracts";
+import { isVideoLibraryItemType } from "@friwatch/contracts";
 import { isMatchedMetadata, metadataMatchType } from "./matching";
 import { supportsMetadataEditing } from "./metadataEditing";
 import {

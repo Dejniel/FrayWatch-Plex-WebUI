@@ -57,7 +57,7 @@ it("grants managed profiles access by Plex user ID with request cancellation", a
   );
 });
 
-it("creates, updates and removes a share through the Nevu backend", async () => {
+it("creates, updates and removes a share through the FriWatch backend", async () => {
   mockedAxios.post.mockResolvedValue({ data: { ok: true } });
   mockedAxios.put.mockResolvedValue({ data: { ok: true } });
   mockedAxios.delete.mockResolvedValue({ data: { ok: true } });

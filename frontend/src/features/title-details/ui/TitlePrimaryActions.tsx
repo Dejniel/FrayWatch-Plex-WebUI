@@ -133,7 +133,7 @@ export default function TitlePrimaryActions({
       if (target.path !== null) navigate(target.path);
       else useBigReader.getState().setBigReader(target.message);
     } catch {
-      useBigReader.getState().setBigReader("Nevu could not start playback.");
+      useBigReader.getState().setBigReader("FriWatch could not start playback.");
     } finally {
       setPlayLoading(false);
     }

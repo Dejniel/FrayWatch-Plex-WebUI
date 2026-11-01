@@ -5,7 +5,7 @@ import {
 } from "@mui/icons-material";
 import { Box, Breadcrumbs, Button, Stack, Typography } from "@mui/material";
 import type React from "react";
-import { libraryEntryKey } from "@nevu/contracts";
+import { libraryEntryKey } from "@friwatch/contracts";
 import { ActionableMediaCard } from "features/media-actions/public";
 import { TrackRow } from "features/music/public";
 import { CollectionViewport } from "shared/ui/CollectionViewport";

@@ -12,7 +12,7 @@ import { createUserOptionsRouter } from '../dist/userOptions.js';
 import { httpErrorHandler } from '../dist/httpErrors.js';
 
 function temporaryFile(t) {
-  const directory = mkdtempSync(resolve(tmpdir(), 'nevu-database-'));
+  const directory = mkdtempSync(resolve(tmpdir(), 'friwatch-database-'));
   t.after(() => rmSync(directory, { recursive: true, force: true }));
   return resolve(directory, 'nested', 'settings database.db');
 }
@@ -22,7 +22,7 @@ const backendDirectory = fileURLToPath(new URL('../', import.meta.url));
 test('SQLite paths stay anchored to the backend across working directories', () => {
   assert.equal(resolveDatabasePath(), resolve(backendDirectory, 'data/perplexed.db'));
   assert.equal(resolveDatabasePath('file:./custom/database.db'), resolve(backendDirectory, 'custom/database.db'));
-  assert.equal(resolveDatabasePath('file:/tmp/nevu.db'), '/tmp/nevu.db');
+  assert.equal(resolveDatabasePath('file:/tmp/friwatch.db'), '/tmp/friwatch.db');
   for (const value of ['file:', 'postgres://localhost/database', './data/database.db'])
     assert.throws(() => resolveDatabasePath(value), /local SQLite/);
 });

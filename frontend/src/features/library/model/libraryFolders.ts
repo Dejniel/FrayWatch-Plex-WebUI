@@ -1,4 +1,4 @@
-import type { LibraryFolderDto } from "@nevu/contracts";
+import type { LibraryFolderDto } from "@friwatch/contracts";
 
 export type FolderPath = Pick<LibraryFolderDto, "id" | "title">[];
 

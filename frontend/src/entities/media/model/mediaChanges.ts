@@ -1,4 +1,4 @@
-import type { LibraryItemUpdateDto } from "@nevu/contracts";
+import type { LibraryItemUpdateDto } from "@friwatch/contracts";
 import type { MediaMetadata } from "plex/media";
 
 /** Transport metadata is unknown until decoded at the synchronization API boundary. */

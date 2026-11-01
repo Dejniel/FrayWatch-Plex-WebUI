@@ -1,5 +1,5 @@
 import type { MediaMetadata, MediaItemData } from "entities/media/model";
-import type { LibraryCardDto, LibraryVideoCardDto } from "@nevu/contracts";
+import type { LibraryCardDto, LibraryVideoCardDto } from "@friwatch/contracts";
 import { getMediaActionCapabilities } from "./mediaActionCapabilities";
 
 const manager = {

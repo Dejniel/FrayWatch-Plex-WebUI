@@ -46,8 +46,8 @@ export default function WaitingRoomScreen() {
       }}
     >
       <img
-        src="/nevu-next-below.svg"
-        alt="Nevu Next"
+        src="/friwatch-logo.svg"
+        alt="FriWatch"
         style={{
           width: "min(65vw, 620px)",
           height: "auto",

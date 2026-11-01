@@ -13,6 +13,7 @@ export const defaultUserSettings: UserSettings = {
 };
 
 const SETTINGS_CACHE_VERSION = 1;
+// Keep the persisted namespace so a branding change does not discard preferences.
 const SETTINGS_CACHE_PREFIX = `nevu.userSettings.v${SETTINGS_CACHE_VERSION}`;
 
 export const userSettingsCacheKey = (profileKey: string) =>

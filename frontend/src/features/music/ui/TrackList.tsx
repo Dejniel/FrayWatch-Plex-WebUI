@@ -1,6 +1,6 @@
 import { Box } from "@mui/material";
 import type React from "react";
-import { libraryEntryKey } from "@nevu/contracts";
+import { libraryEntryKey } from "@friwatch/contracts";
 import { useLibraryViewport, type LibraryQuery } from "features/library/model";
 import { CollectionViewport } from "shared/ui/CollectionViewport";
 import { TrackRow } from "./TrackRow";

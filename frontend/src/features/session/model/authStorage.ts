@@ -15,6 +15,7 @@ export interface ActivePlexSession {
   serverToken: string;
 }
 
+// Persisted IDs stay stable across branding changes to preserve existing sign-ins.
 const OWNER_TOKEN_KEY = "nevu.auth.ownerToken";
 const ACTIVE_SESSION_KEY = "nevu.auth.activeSession";
 const REMEMBER_PROFILE_KEY = "nevu.auth.rememberProfile";

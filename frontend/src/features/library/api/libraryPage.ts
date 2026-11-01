@@ -2,7 +2,7 @@ import type {
   LibraryPageDto,
   LibraryPageRequest,
   LibraryItemUpdateDto,
-} from "@nevu/contracts";
+} from "@friwatch/contracts";
 import { readMediaMetadata, type MediaItemUpdate } from "entities/media/model";
 import axios from "axios";
 import {

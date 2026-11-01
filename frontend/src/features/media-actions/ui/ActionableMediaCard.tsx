@@ -1,5 +1,5 @@
 import { MoreVertRounded, PlayArrowRounded } from "@mui/icons-material";
-import { isVideoLibraryItemType } from "@nevu/contracts";
+import { isVideoLibraryItemType } from "@friwatch/contracts";
 import { CircularProgress, IconButton, Tooltip } from "@mui/material";
 import { MediaCard, type MediaCardProps } from "entities/media/public";
 import { useCanManageServer, useServerSession } from "features/session/public";
@@ -111,7 +111,7 @@ function VideoMediaCard({
       if (target.path !== null) navigate(target.path);
       else useBigReader.getState().setBigReader(target.message);
     } catch {
-      useBigReader.getState().setBigReader("Nevu could not start playback.");
+      useBigReader.getState().setBigReader("FriWatch could not start playback.");
     } finally {
       setPlayLoading(false);
     }
@@ -130,7 +130,7 @@ function VideoMediaCard({
       if (error instanceof StaleMediaMetadataRequestError) return;
       useBigReader
         .getState()
-        .setBigReader("Nevu could not load this item's editable metadata.");
+        .setBigReader("FriWatch could not load this item's editable metadata.");
     }
   };
 

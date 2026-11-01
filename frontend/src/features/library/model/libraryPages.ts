@@ -1,5 +1,5 @@
 import { queryOptions, type QueryClient } from "@tanstack/react-query";
-import { libraryEntryKey, type LibraryPageDto } from "@nevu/contracts";
+import { libraryEntryKey, type LibraryPageDto } from "@friwatch/contracts";
 import { runPageRequest } from "shared/lib/requestLimiter";
 import { pageOffsets, queryWindowKey, queryWindowOptions } from "shared/lib/queryWindow";
 import { getLibraryPage, LibraryPageError } from "../api/libraryPage";

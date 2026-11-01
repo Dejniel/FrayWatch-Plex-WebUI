@@ -10,7 +10,7 @@ import {
   Typography,
 } from "@mui/material";
 import { useId } from "react";
-import { preferenceValueError, type PlexPreference } from "@nevu/contracts";
+import { preferenceValueError, type PlexPreference } from "@friwatch/contracts";
 
 export default function PreferenceField({
   preference,

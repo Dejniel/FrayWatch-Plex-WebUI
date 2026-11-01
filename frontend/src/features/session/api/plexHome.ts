@@ -32,8 +32,8 @@ function config(session: PlexHomeSession, signal?: AbortSignal) {
       Accept: "application/json",
       "X-Plex-Token": session.token,
       "X-Plex-Client-Identifier":
-        localStorage.getItem("clientID") || "nevu-web",
-      "X-Plex-Product": "NEVU",
+        localStorage.getItem("clientID") || "friwatch-web",
+      "X-Plex-Product": "FriWatch",
       "X-Plex-Version": APP_VERSION,
     },
   };
@@ -269,7 +269,7 @@ export async function changePlexHome(
               pin: change.pin,
               ...(member!.protected && { currentPin: change.currentPin }),
             };
-        // Plex's PIN API accepts query parameters; send only to Plex, never the Nevu proxy.
+        // Plex's PIN API accepts query parameters; send only to Plex, never the FriWatch proxy.
         const path = member!.restricted
           ? `/api/v2/home/users/restricted/${member!.id}`
           : `/api/home/users/${member!.id}`;

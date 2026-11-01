@@ -19,7 +19,7 @@ import {
 } from "@mui/material";
 import React, { JSX, memo } from "react";
 import { useLocation } from "react-router-dom";
-import { isVideoLibraryItemType } from "@nevu/contracts";
+import { isVideoLibraryItemType } from "@friwatch/contracts";
 import {
   getResponsiveTranscodeImageProps,
   LANDSCAPE_IMAGE_WIDTHS,

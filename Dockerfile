@@ -52,7 +52,7 @@ ENV NODE_ENV=production \
     LISTEN_PORT=3000 \
     APP_VERSION=${APP_VERSION}
 LABEL org.opencontainers.image.source="https://github.com/Dejniel/Nevu-Next-Plex-WebUI" \
-      org.opencontainers.image.title="Nevu Next Plex WebUI" \
+      org.opencontainers.image.title="FriWatch" \
       org.opencontainers.image.licenses="GPL-3.0"
 
 COPY backend/package.json backend/package-lock.json ./

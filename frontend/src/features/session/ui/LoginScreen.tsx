@@ -40,7 +40,7 @@ export default function LoginScreen() {
 
         const clientIdentifier = localStorage.getItem("clientID");
         if (!clientIdentifier)
-          return active && setError("Nevu could not identify this browser. Reload the page and try again.");
+          return active && setError("FriWatch could not identify this browser. Reload the page and try again.");
 
         const forwardUrl = new URL("/login", window.location.origin);
         forwardUrl.searchParams.set("pinID", String(res.id));

@@ -1,17 +1,1 @@
-<svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <linearGradient id="nevu" x1="96" y1="80" x2="416" y2="432" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#818CF8"/>
-      <stop offset="1" stop-color="#4F46E5"/>
-    </linearGradient>
-  </defs>
-  <rect width="512" height="512" fill="#111111"/>
-  <path
-    d="M112 408V104L400 408V104"
-    fill="none"
-    stroke="url(#nevu)"
-    stroke-linecap="round"
-    stroke-linejoin="round"
-    stroke-width="88"
-  />
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96"><rect width="96" height="96" rx="22" fill="#17181C"/><g fill="#FFC222" transform="translate(4 16)"><path d="M6 10H31L28 19H15V27H27L24 36H15V54H6Z M35 10H44L49 37L55 20H62L68 37L73 10H82L73 54H64L58.5 38L53 54H44Z"/></g></svg>

@@ -20,7 +20,7 @@ import {
   mediaMetadataQueryKey,
   mediaChildrenQueryOptions,
 } from "entities/media/model";
-import type { LibraryCardDto } from "@nevu/contracts";
+import type { LibraryCardDto } from "@friwatch/contracts";
 
 vi.mock("features/library/model", async (importOriginal) => ({
   ...(await importOriginal<typeof import("features/library/model")>()),

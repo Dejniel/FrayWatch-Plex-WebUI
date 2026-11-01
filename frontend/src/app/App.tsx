@@ -23,8 +23,8 @@ function AppManager() {
 
   useEffect(() => {
     document.title = serverName
-      ? `Plex Nevu Next - ${serverName}`
-      : "Plex Nevu Next";
+      ? `FriWatch - ${serverName}`
+      : "FriWatch";
   }, [serverName]);
 
   useEffect(() => {

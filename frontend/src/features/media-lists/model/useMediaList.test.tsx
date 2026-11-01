@@ -14,7 +14,7 @@ import {
 import { applyMediaListChanges } from "./listSync";
 import { useMediaList, useMediaListWindow } from "./useMediaList";
 import type { MediaListPage, MediaListQuery } from "./mediaLists";
-import type { LibraryCardDto } from "@nevu/contracts";
+import type { LibraryCardDto } from "@friwatch/contracts";
 
 vi.mock("../api/mediaLists", () => ({ createMediaListSource: vi.fn() }));
 beforeAll(() => notifyManager.setScheduler(queueMicrotask));

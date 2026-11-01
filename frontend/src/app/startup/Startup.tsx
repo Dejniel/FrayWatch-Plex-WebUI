@@ -148,9 +148,9 @@ function Startup() {
       }}
     >
       <img
-        src="/nevu-next-below.svg"
-        alt="Nevu Next"
-        style={{ width: "min(70vw, 720px)", height: "auto" }}
+        src="/friwatch-logo.svg"
+        alt="FriWatch"
+        style={{ width: "min(70vw, 420px)", height: "auto" }}
       />
     </Box>
   );

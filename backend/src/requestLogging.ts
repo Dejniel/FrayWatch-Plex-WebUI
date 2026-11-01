@@ -6,7 +6,7 @@ const sensitiveQueryKeys = new Set([
 
 export function safeRequestUrl(rawUrl: string) {
     try {
-        const url = new URL(rawUrl, 'http://nevu.local');
+        const url = new URL(rawUrl, 'http://friwatch.local');
         for (const key of new Set(url.searchParams.keys())) {
             if (sensitiveQueryKeys.has(key.toLowerCase()))
                 url.searchParams.set(key, '[redacted]');

@@ -1,20 +1,20 @@
-# Nevu Next Plex WebUI
+# FriWatch
 
-Nevu Next Plex WebUI is a modern, self-hosted alternative web interface for Plex Media Server. It gives movie and TV libraries a faster, cleaner browser experience with Plex Home profiles, adaptive trailers, configurable library views, rich title details, multi-version playback, ratings and reviews, and practical server administration. It runs in Docker and keeps Plex as the media server and source of truth.
+FriWatch is a modern, self-hosted alternative web interface for Plex Media Server. It gives movie and TV libraries a faster, cleaner browser experience with Plex Home profiles, adaptive trailers, configurable library views, rich title details, multi-version playback, ratings and reviews, and practical server administration. It runs in Docker and keeps Plex as the media server and source of truth.
 
-![Nevu Next Plex WebUI showing a cinematic Plex home screen](assets/preview.jpg)
+![FriWatch interface preview](assets/preview.jpg)
 
-## Why this fork exists
+## Why FriWatch exists
 
 I was not looking for another side project. I wanted to open Plex and watch a film.
 
 The official web interface had become unreliable in my setup, while the alternatives I tried were either too bare, partially broken, or mixed the basic Plex experience with unrelated accounts, payments, and services. The original Nevu project was the closest match: it already had the right idea and a strong visual foundation, but login, mobile use, playback details, and several everyday workflows still needed work.
 
-So yes, you are reading the README of a fork created because watching a film turned into debugging a media client. Nevu Next builds on the original project while focusing on a dependable Plex-native experience, practical administration tools, and a codebase that can keep moving forward.
+FriWatch grew out of that project because watching a film had turned into debugging a media client. It now focuses on a dependable Plex-native experience, practical administration tools, and a codebase that can keep moving forward.
 
 This project is under active development. Expect rough edges, but also expect fixes to target real use rather than a mock interface.
 
-Nevu Next is a modified fork of [Ipmake/NevuForPlex](https://github.com/Ipmake/NevuForPlex), maintained under [GPL-3.0](LICENSE) since 2026.
+FriWatch originated as a fork of [Ipmake/NevuForPlex](https://github.com/Ipmake/NevuForPlex), maintained under [GPL-3.0](LICENSE) since 2026.
 
 ## Features
 
@@ -37,13 +37,13 @@ Nevu Next is a modified fork of [Ipmake/NevuForPlex](https://github.com/Ipmake/N
 - **Plex metadata matching** for movies, shows, artists and albums: title or external-ID searches, server-provided agents, and manager-only Match, Fix Match and Unmatch actions. Supports IMDb/TMDB/TVDB IDs and links, plus MusicBrainz artist/release IDs.
 - **Plex library administration** for server managers: create, edit, and delete libraries; browse server folders; scan files; refresh metadata; analyze media; and empty library trash.
 - **Plex server preferences** generated from the connected server, with grouped sections, search, advanced options, individual defaults, and saving only edited values. Library preferences use the same fields and validation.
-- **Library sharing management** for granting, updating, and removing another Plex user's access without leaving Nevu Next.
+- **Library sharing management** for granting, updating, and removing another Plex user's access without leaving FriWatch.
 - **Original-file downloads** for video, tracks and photos when the active Plex account is allowed, with a choice of available files and versions.
-- **Watch Together through Nevu Sync**, which can be disabled for a simpler local installation.
+- **Watch Together through FriWatch Sync**, which can be disabled for a simpler local installation.
 - **Optional native HTTPS** with mounted PEM files or a persistent self-signed certificate.
 - **Self-hosted Docker deployment** with reproducible multi-platform images built from lockfiles and published to GHCR.
 
-Nevu Next supports movie and TV workflows, music artist/album pages and track lists,
+FriWatch supports movie and TV workflows, music artist/album pages and track lists,
 and photo libraries. Music keeps playing during navigation, with a persistent player
 and an editable Plex queue with shuffle and repeat. Reload restores the selected
 queue entry and position paused. Artist, album and track menus create or extend music
@@ -66,12 +66,12 @@ For a complete installation, use the ready Portainer Stack / Docker Compose exam
 
 For all supported environment variables, ports, persistent data, Plex connection options, and TLS mounts, see the [configuration reference](docs/configuration.md).
 
-### Portainer Stack / Docker Compose: Plex + Nevu Next
+### Portainer Stack / Docker Compose: Plex + FriWatch
 
 Use this stack for a complete installation:
 
 ```yaml
-name: nevu-next
+name: friwatch
 
 services:
   plex:
@@ -86,8 +86,8 @@ services:
       - /srv/plex/config:/config
       - /srv/media:/data:ro
 
-  nevu-next:
-    image: ghcr.io/dejniel/nevu-next-plex-webui:latest
+  friwatch:
+    image: ghcr.io/dejniel/friwatch:latest
     restart: unless-stopped
     depends_on:
       - plex
@@ -96,10 +96,10 @@ services:
     environment:
       PLEX_SERVER: http://plex:32400
     volumes:
-      - nevu-data:/app/data
+      - friwatch-data:/app/data
 
 volumes:
-  nevu-data:
+  friwatch-data:
 ```
 
 Replace the server IP, storage paths, and `PLEX_CLAIM` from [plex.tv/claim](https://www.plex.tv/claim), then deploy:
@@ -108,35 +108,35 @@ Replace the server IP, storage paths, and `PLEX_CLAIM` from [plex.tv/claim](http
 docker compose up -d
 ```
 
-Open Plex at `http://192.168.1.10:32400/web` and Nevu Next at `http://192.168.1.10:3000`. The claim token is only needed for Plex's first start.
+Open Plex at `http://192.168.1.10:32400/web` and FriWatch at `http://192.168.1.10:3000`. The claim token is only needed for Plex's first start.
 
 Timezone, custom Plex user/group IDs, a dedicated `/transcode` mount, hardware acceleration, and additional Plex discovery ports are optional and depend on the host. Add them only when your installation requires them.
 
-### Docker commands: Nevu Next with an existing Plex server
+### Docker commands: FriWatch with an existing Plex server
 
-When Plex is already running, pull the current Nevu Next image:
+When Plex is already running, pull the current FriWatch image:
 
 ```bash
-docker pull ghcr.io/dejniel/nevu-next-plex-webui:latest
+docker pull ghcr.io/dejniel/friwatch:latest
 ```
 
 Then start the container, replacing `PLEX_SERVER` with your server address:
 
 ```bash
 docker run -d \
-  --name nevu-next \
+  --name friwatch \
   --restart unless-stopped \
   -p 3000:3000 \
-  -v nevu-next-data:/app/data \
+  -v friwatch-data:/app/data \
   -e PLEX_SERVER=http://192.168.1.10:32400 \
-  ghcr.io/dejniel/nevu-next-plex-webui:latest
+  ghcr.io/dejniel/friwatch:latest
 ```
 
-`PLEX_SERVER` must include `http://` or `https://` and must not end with `/`. Open Nevu Next at `http://SERVER_IP:3000`.
+`PLEX_SERVER` must include `http://` or `https://` and must not end with `/`. Open FriWatch at `http://SERVER_IP:3000`.
 
 ### HTTPS
 
-Nevu Next can use its persistent self-signed certificate or existing mounted PEM files. See the [HTTPS configuration](docs/configuration.md#https) for the exact environment variables and volume mounts.
+FriWatch can use its persistent self-signed certificate or existing mounted PEM files. See the [HTTPS configuration](docs/configuration.md#https) for the exact environment variables and volume mounts.
 
 ## Contributing
 
@@ -168,7 +168,7 @@ Buildx/BuildKit. Run the backend and frontend in separate terminals:
 ```
 
 Open `http://localhost:4000`. Vite proxies API, notification, and Watch Together
-requests to `http://localhost:3000`; set `NEVU_DEV_BACKEND` to use another backend.
+requests to `http://localhost:3000`; set `FRIWATCH_DEV_BACKEND` to use another backend.
 The SQLite install script is pinned and explicitly approved in
 `backend/package.json`; review that approval when updating the driver. Settings
 use one SQLite table created on first start, without an ORM or migration CLI.
@@ -178,10 +178,10 @@ Checks:
 ```bash
 (cd frontend && npm run typecheck && npm run lint && npm test && npm run build)
 (cd backend && npm run lint && npm test)
-docker buildx build --load -t nevu-next:test .
+docker buildx build --load -t friwatch:test .
 ```
 
 TypeScript checks reject unused locals and parameters in both packages.
 
 See the [testing guide](docs/testing.md) for check scope and a standalone Plex
-and Nevu environment.
+and FriWatch environment.

@@ -1,6 +1,6 @@
 import type { MediaMetadata, PlaybackQueueItem } from "entities/media/model";
 import { SkipNext } from "@mui/icons-material";
-import { alpha, Box, Button, Typography, useTheme } from "@mui/material";
+import { alpha, Box, Button, darken, Typography, useTheme } from "@mui/material";
 import { useState, useEffect } from "react";
 import { useUserSettings } from "features/settings/model";
 
@@ -108,8 +108,8 @@ function NextEpisodeOverlay({
           },
         }}
         style={{
-          background: `linear-gradient(90deg, 
-          ${theme.palette.primary.main} ${progressPercentage}%, 
+          background: `linear-gradient(90deg,
+          ${darken(theme.palette.primary.main, 0.75)} ${progressPercentage}%,
           rgba(0,0,0,0.8) ${progressPercentage}%)`,
         }}
         variant="contained"

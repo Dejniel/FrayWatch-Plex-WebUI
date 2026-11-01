@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { normalizePlexPreferences, validatePreferenceChanges, type PlexPreference } from '@nevu/contracts';
+import { normalizePlexPreferences, validatePreferenceChanges, type PlexPreference } from '@friwatch/contracts';
 import express from 'express';
 import {
     LIBRARY_PRESETS,

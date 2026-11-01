@@ -1,5 +1,5 @@
 import { readMediaMetadata, type MediaMetadata } from "entities/media/model";
-import { libraryItemTypeNumbers } from "@nevu/contracts";
+import { libraryItemTypeNumbers } from "@friwatch/contracts";
 import { PlexClient } from "shared/api/PlexClient";
 import { readPlexMetadataPages } from "shared/api/plexPagination";
 import {

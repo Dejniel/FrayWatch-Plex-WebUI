@@ -4,7 +4,7 @@
   "private": true,
   "main": "dist/index.js",
   "dependencies": {
-    "@nevu/contracts": "file:../contracts",
+    "@friwatch/contracts": "file:../contracts",
     "axios": "^1.20.0",
     "express": "^5.2.1",
     "socket.io": "^4.8.4",

@@ -1,5 +1,5 @@
 import axios from "axios";
-import type { PlexPreference, PreferenceChanges } from "@nevu/contracts";
+import type { PlexPreference, PreferenceChanges } from "@friwatch/contracts";
 import { getBackendURL } from "shared/api/backend";
 
 function preferenceError(error: unknown): Error {

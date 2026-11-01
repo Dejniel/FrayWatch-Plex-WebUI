@@ -1,4 +1,4 @@
-import type { PreferenceChanges } from "@nevu/contracts";
+import type { PreferenceChanges } from "@friwatch/contracts";
 import {
   artworkTypes,
   draftFromMetadata,

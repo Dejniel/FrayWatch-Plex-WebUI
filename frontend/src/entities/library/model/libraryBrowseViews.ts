@@ -3,7 +3,7 @@ import {
   isLibraryItemType,
   isVideoLibraryItemType,
   type LibraryItemType,
-} from "@nevu/contracts";
+} from "@friwatch/contracts";
 
 export type LibraryBrowseViewId = LibraryItemType | "folders";
 export interface LibraryBrowseView {

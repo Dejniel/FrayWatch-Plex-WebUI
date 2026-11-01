@@ -38,7 +38,7 @@ function Utility() {
             marginBottom: "20px",
           }}
         >
-          NEVU has encountered an error
+          FriWatch has encountered an error
         </Typography>
 
         {lastStatus?.error && (

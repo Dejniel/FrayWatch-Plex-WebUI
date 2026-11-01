@@ -1,4 +1,4 @@
-import type { LibraryMusicCardDto, LibraryPhotoCardDto } from "@nevu/contracts";
+import type { LibraryMusicCardDto, LibraryPhotoCardDto } from "@friwatch/contracts";
 import { mediaCardText } from "./mediaCardText";
 
 const music: LibraryMusicCardDto = { ratingKey: "1", title: "Title", type: "track" };

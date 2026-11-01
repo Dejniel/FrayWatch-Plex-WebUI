@@ -1,5 +1,5 @@
 import axios from "axios";
-import type { PlexPreference, PreferenceChanges } from "@nevu/contracts";
+import type { PlexPreference, PreferenceChanges } from "@friwatch/contracts";
 import { AuthStorage } from "features/session/model";
 import { getBackendURL } from "shared/api/backend";
 
@@ -75,18 +75,18 @@ function headers(token = AuthStorage.getProfileAccountToken()) {
 
   return {
     "X-Plex-Token": token,
-    "X-Plex-Client-Identifier": localStorage.getItem("clientID") || "nevu-web",
+    "X-Plex-Client-Identifier": localStorage.getItem("clientID") || "friwatch-web",
   };
 }
 
 function managementError(error: unknown) {
   if (error instanceof LibraryManagementError) return error;
   if (!axios.isAxiosError(error))
-    return new LibraryManagementError("Nevu could not manage Plex libraries.");
+    return new LibraryManagementError("FriWatch could not manage Plex libraries.");
   const message =
     typeof error.response?.data?.error === "string"
       ? error.response.data.error
-      : "Nevu could not manage Plex libraries.";
+      : "FriWatch could not manage Plex libraries.";
   return new LibraryManagementError(message, error.response?.status);
 }
 

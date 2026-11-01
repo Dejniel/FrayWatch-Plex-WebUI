@@ -53,7 +53,7 @@ function headers() {
 
   return {
     "X-Plex-Token": token,
-    "X-Plex-Client-Identifier": localStorage.getItem("clientID") || "nevu-web",
+    "X-Plex-Client-Identifier": localStorage.getItem("clientID") || "friwatch-web",
   };
 }
 
@@ -61,12 +61,12 @@ function sharingError(error: unknown): Error {
   if (axios.isCancel(error))
     return new DOMException("Sharing request cancelled", "AbortError");
   if (!axios.isAxiosError(error))
-    return new SharingError("Nevu could not update Plex sharing.");
+    return new SharingError("FriWatch could not update Plex sharing.");
 
   const message =
     typeof error.response?.data?.error === "string"
       ? error.response.data.error
-      : "Nevu could not update Plex sharing.";
+      : "FriWatch could not update Plex sharing.";
   return new SharingError(message, error.response?.status);
 }
 

@@ -7,7 +7,7 @@ import {
   plexString,
   plexBoolean,
 } from "shared/api/plexResponse";
-import { normalizePlexPreferences } from "@nevu/contracts";
+import { normalizePlexPreferences } from "@friwatch/contracts";
 import type {
   ArtworkOption,
   MetadataCastSnapshot,

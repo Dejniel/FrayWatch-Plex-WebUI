@@ -1,3 +1,4 @@
+# Keep this project identity to reuse the existing test Plex and app volumes.
 name: nevu-test
 
 services:
@@ -14,15 +15,15 @@ services:
       - plex-transcode:/transcode
       - ${PLEX_TEST_MEDIA_PATH:?Set PLEX_TEST_MEDIA_PATH to a sample media directory}:/data:ro
 
-  nevu:
-    image: nevu-next:test
+  friwatch:
+    image: friwatch:test
     restart: "no"
     build:
       context: .
     depends_on:
       - plex
     ports:
-      - "127.0.0.1:${NEVU_TEST_PORT:-3101}:3000"
+      - "127.0.0.1:${FRIWATCH_TEST_PORT:-3101}:3000"
     environment:
       PLEX_SERVER: http://plex:32400
       LISTEN_PORT: 3000

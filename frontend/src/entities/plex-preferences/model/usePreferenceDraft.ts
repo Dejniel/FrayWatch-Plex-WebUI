@@ -4,7 +4,7 @@ import {
   preferenceValue,
   type PlexPreference,
   type PreferenceChanges,
-} from "@nevu/contracts";
+} from "@friwatch/contracts";
 
 export function usePreferenceDraft(preferences: readonly PlexPreference[]) {
   const [draft, setDraft] = useState<PreferenceChanges>({});

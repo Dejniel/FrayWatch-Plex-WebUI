@@ -1,5 +1,5 @@
 const defaultConfig: PerPlexed.ConfigOptions = {
-  DISABLE_NEVU_SYNC: false,
+  DISABLE_WATCH_TOGETHER: false,
 };
 
 function loadConfig(): PerPlexed.ConfigOptions {

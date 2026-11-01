@@ -1,6 +1,6 @@
 import type { MediaMetadata } from "entities/media/model";
 import { MenuItem, Select } from "@mui/material";
-import type { LibrarySort } from "@nevu/contracts";
+import type { LibrarySort } from "@friwatch/contracts";
 import React, { SetStateAction } from "react";
 import {
   DEFAULT_LIBRARY_SORT,
@@ -8,7 +8,7 @@ import {
   librarySortOptions,
 } from "../model/librarySort";
 
-export type { LibrarySort } from "@nevu/contracts";
+export type { LibrarySort } from "@friwatch/contracts";
 export { DEFAULT_LIBRARY_SORT, normalizeLibrarySort } from "../model/librarySort";
 
 function LibrarySortDropDown({

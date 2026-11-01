@@ -2,7 +2,7 @@ import { act } from "react";
 import { createRoot, type Root } from "react-dom/client";
 import { MemoryRouter } from "react-router-dom";
 import ActionableMediaCard from "./ActionableMediaCard";
-import type { LibraryCardDto } from "@nevu/contracts";
+import type { LibraryCardDto } from "@friwatch/contracts";
 
 const preview = vi.hoisted(() =>
   vi.fn((_item: unknown, _enabled: boolean) => ({

@@ -1,5 +1,6 @@
 import { SearchRounded } from "@mui/icons-material";
 import {
+  alpha,
   Backdrop,
   Box,
   CircularProgress,
@@ -104,7 +105,9 @@ export default function SearchBar({
               event.preventDefault();
               if (results.length === 0) return;
               setSelectedIndex((current) =>
-                current === null ? 0 : Math.min(current + 1, results.length - 1),
+                current === null
+                  ? 0
+                  : Math.min(current + 1, results.length - 1),
               );
               break;
             case "ArrowUp":
@@ -146,7 +149,11 @@ export default function SearchBar({
           backgroundColor: "#121212AA",
           transition: "width 0.2s ease-in-out",
           zIndex: 11000,
-          width: inDrawer ? "100%" : open ? "clamp(160px, 20vw, 400px)" : "clamp(160px, 20vw, 300px)",
+          width: inDrawer
+            ? "100%"
+            : open
+              ? "clamp(160px, 20vw, 400px)"
+              : "clamp(160px, 20vw, 300px)",
         }}
       />
       <Popper
@@ -168,7 +175,9 @@ export default function SearchBar({
         onClick={(event) => event.stopPropagation()}
       >
         {search.loading && (
-          <Box sx={{ display: "flex", justifyContent: "center", width: "100%" }}>
+          <Box
+            sx={{ display: "flex", justifyContent: "center", width: "100%" }}
+          >
             <CircularProgress />
           </Box>
         )}
@@ -221,13 +230,17 @@ function SearchSuggestion({
         width: "100%",
         borderRadius: "4px",
         backgroundColor: (theme) =>
-          selected ? theme.palette.primary.dark : theme.palette.background.paper,
+          selected
+            ? alpha(theme.palette.primary.main, 0.14)
+            : theme.palette.background.paper,
         p: "7px 10px",
         transition: "background-color 0.2s ease-in-out",
         userSelect: "none",
         color: "inherit",
         textDecoration: "none",
-        "&:hover": { backgroundColor: (theme) => theme.palette.primary.dark },
+        "&:hover": {
+          backgroundColor: (theme) => alpha(theme.palette.primary.main, 0.2),
+        },
       }}
       onClick={(event) => {
         event.stopPropagation();
@@ -238,9 +251,18 @@ function SearchSuggestion({
         <>
           <Box
             component="img"
-            src={metadata.thumb ? getTranscodeImageURL(metadata.thumb, 100, 100) : undefined}
+            src={
+              metadata.thumb
+                ? getTranscodeImageURL(metadata.thumb, 100, 100)
+                : undefined
+            }
             alt=""
-            sx={{ width: 50, height: 50, objectFit: "cover", borderRadius: "4px" }}
+            sx={{
+              width: 50,
+              height: 50,
+              objectFit: "cover",
+              borderRadius: "4px",
+            }}
           />
           <Box sx={{ ml: 2, display: "flex", flexDirection: "column" }}>
             <Typography>{metadata.title}</Typography>

@@ -42,7 +42,7 @@ function forwardedHeaders(headers: Record<string, unknown>) {
 
 function plexRequestHeaders(headers: Record<string, unknown>) {
     const result = forwardedHeaders(headers);
-    // Nevu is the Plex client on this hop. Keep browser ingress routing
+    // FriWatch is the Plex client on this hop. Keep browser ingress routing
     // separate from the Plex connection's network identity.
     for (const name of Object.keys(result))
         if (['host', 'cookie', 'forwarded', 'x-real-ip'].includes(name) || name.startsWith('x-forwarded-'))

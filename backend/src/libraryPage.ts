@@ -9,8 +9,8 @@ import type {
     LibraryPageDto,
     LibrarySource,
     LibrarySort,
-} from '@nevu/contracts';
-import { changedMediaFields, isLibraryContainerType, isLibraryItemType, libraryItemTypeNumbers, libraryFilterUnaffected, mediaMetadataIncludes } from '@nevu/contracts';
+} from '@friwatch/contracts';
+import { changedMediaFields, isLibraryContainerType, isLibraryItemType, libraryItemTypeNumbers, libraryFilterUnaffected, mediaMetadataIncludes } from '@friwatch/contracts';
 import { InvalidLibraryPageError, projectLibraryCard, projectLibraryPage, readLibraryMetadata } from './libraryCardProjection.js';
 import axios from 'axios';
 import { createHash } from 'node:crypto';

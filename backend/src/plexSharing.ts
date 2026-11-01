@@ -56,7 +56,7 @@ function clientIdentifier(req: express.Request) {
     const candidate = req.headers['x-plex-client-identifier'];
     return typeof candidate === 'string' && /^[A-Za-z0-9._-]{1,128}$/.test(candidate)
         ? candidate
-        : 'nevu-sharing-panel';
+        : 'friwatch-sharing-panel';
 }
 
 function cloudHeaders(req: express.Request, token: string) {
@@ -64,7 +64,7 @@ function cloudHeaders(req: express.Request, token: string) {
         Accept: 'application/json',
         'Content-Type': 'application/json',
         'X-Plex-Token': token,
-        'X-Plex-Product': 'NEVU',
+        'X-Plex-Product': 'FriWatch',
         'X-Plex-Version': APP_VERSION,
         'X-Plex-Client-Identifier': clientIdentifier(req),
     };

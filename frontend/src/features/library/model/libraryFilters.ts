@@ -3,7 +3,7 @@ import type {
   LibraryFilterClause,
   LibraryFilterMode,
   LibraryFilterOperator,
-} from "@nevu/contracts";
+} from "@friwatch/contracts";
 
 const LIBRARY_FILTER_PARAM = "filter";
 export const LIBRARY_FILTER_MODE_PARAM = "match";

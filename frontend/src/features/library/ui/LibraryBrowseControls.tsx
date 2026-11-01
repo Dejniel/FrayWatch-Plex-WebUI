@@ -8,7 +8,7 @@ import {
   Tooltip,
 } from "@mui/material";
 import { ShuffleRounded } from "@mui/icons-material";
-import type { LibrarySort } from "@nevu/contracts";
+import type { LibrarySort } from "@friwatch/contracts";
 import { LibraryFilterSelect } from "./LibraryFilterControls";
 import AdvancedLibraryFilterDialog from "./AdvancedLibraryFilterDialog";
 import { isRandomLibrarySort } from "../model/librarySort";

@@ -1,5 +1,5 @@
 import type { LibrarySortDefinition } from "entities/library/model";
-import type { LibrarySort } from "@nevu/contracts";
+import type { LibrarySort } from "@friwatch/contracts";
 
 export const DEFAULT_LIBRARY_SORT: LibrarySort = "titleSort";
 

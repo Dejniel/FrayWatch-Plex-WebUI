@@ -1,7 +1,7 @@
 import type { LocalMediaMatch } from "./mediaAvailability";
 import { QueryObserver } from "@tanstack/react-query";
 import type { MediaItemUpdate } from "./mediaChanges";
-import type { LibraryCardDto } from "@nevu/contracts";
+import type { LibraryCardDto } from "@friwatch/contracts";
 import { createQueryClient } from "shared/api/queryClient";
 import { availabilityQueryOptions } from "./availabilityQuery";
 import { applyAvailabilityChanges } from "./availabilitySync";

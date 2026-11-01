@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 172 52" role="img" aria-label="FriWatch">
+  <metadata>{"sourceTypeface":{"name":"Unitblock","author":"GGBotNet","license":"CC0-1.0","url":"https://www.fontspace.com/unitblock-font-f104834"},"outlineChange":"30% thicker stems, with preserved counters","kerningInFontUnits":{"Fr":-520,"ri":-240,"iW":200,"Wa":-80,"at":-160,"tc":-100,"ch":-160}}</metadata>
+  <g transform="translate(4.00000 43.01421) scale(0.005932430 -0.005932430)">
+    <g fill="#F4F4F5">
+      <path data-letter="F" transform="translate(0 0)" d="M932 2402V0H0V5736H3298V4804H932V3334H2940V2402Z"/>
+      <path data-letter="r" transform="translate(3495 0)" d="M3298 3478V2295H2366V3370H932V0H0V4302H2474Q2814 4302 3056 4060Q3298 3818 3298 3478Z"/>
+      <path data-letter="i" transform="translate(7270 0)" d="M932 4302V0H0V4302ZM932 5736V4804H0V5736Z"/>
+    </g>
+    <g fill="#FFC222">
+      <path data-letter="W" transform="translate(9119 0)" d="M0 0V5736H932V932H1649V5736H2581V725Q2845 755 3043 895Q3298 1073 3298 1326V5736H4230V1486Q4230 871 3778 435Q3326 0 2474 0Z"/>
+      <path data-letter="a" transform="translate(13986 0)" d="M242 233Q0 468 0 796V2180Q0 2508 242 2742Q483 2976 824 2976H2151V3370H0V3478Q0 3818 242 4060Q484 4302 824 4302H2258Q2599 4302 2841 4072Q3083 3841 3083 3517V0H824Q483 0 242 233ZM2151 2044H932V932H2151Z"/>
+      <path data-letter="t" transform="translate(17626 0)" d="M717 4302V5736H1649V4302H2366V3370H1649V932H2366V0H1542Q1201 0 959 227Q717 455 717 775V3370H0V4302Z"/>
+      <path data-letter="c" transform="translate(20609 0)" d="M3083 3478V2653H2151V3370H932V932H2151V1649H3083V824Q3083 484 2841 242Q2599 0 2258 0H824Q484 0 242 230Q0 461 0 785V3517Q0 3842 242 4072Q483 4302 824 4302H2258Q2599 4302 2841 4060Q3083 3818 3083 3478Z"/>
+      <path data-letter="h" transform="translate(24249 0)" d="M932 3370V0H0V5736H932V4302H2474Q2814 4302 3056 4072Q3298 3841 3298 3517V0H2366V3370Z"/>
+    </g>
+  </g>
+</svg>

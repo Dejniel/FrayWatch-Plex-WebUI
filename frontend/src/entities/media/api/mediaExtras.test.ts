@@ -50,7 +50,7 @@ it("resolves Discover trailers with the account token instead of requesting loca
     {
       headers: {
         "X-Plex-Token": "account-token",
-        "X-Plex-Client-Identifier": "nevu-web",
+        "X-Plex-Client-Identifier": "friwatch-web",
       },
     },
   );

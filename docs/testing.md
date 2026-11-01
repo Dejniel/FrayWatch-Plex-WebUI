@@ -15,14 +15,16 @@ account capability is unavailable.
 Backend tests use temporary SQLite databases to check initialization, existing
 settings, profile isolation, parameterized writes, and persistence after reopening.
 
-## Standalone Plex + Nevu
+## Standalone Plex + FriWatch
 
-`compose.test.yaml` builds Nevu from the checkout and starts a separate Plex with
+`compose.test.yaml` builds FriWatch from the checkout and starts a separate Plex with
 its own configuration, volumes, and network. Ports bind to localhost and both
 containers use `restart: "no"`. Run from the repository root:
 
+The stable `nevu-test` Compose project name preserves existing test Plex volumes.
+
 ```bash
-export PLEX_TEST_MEDIA_PATH=/tmp/nevu-test-media
+export PLEX_TEST_MEDIA_PATH=/tmp/friwatch-test-media
 mkdir -p "$PLEX_TEST_MEDIA_PATH"
 docker compose -f compose.test.yaml up --build -d
 ```
@@ -31,7 +33,7 @@ Open Plex at `http://localhost:32401/web`, sign in, and complete server setup.
 Optionally set `PLEX_TEST_CLAIM` from [plex.tv/claim](https://www.plex.tv/claim)
 before the first start. Add sample media to the directory and create libraries
 under `/data`. Include movies, episodes, versions, audio tracks, or subtitles
-needed by the scenario. Open Nevu at `http://localhost:3101` and sign in.
+needed by the scenario. Open FriWatch at `http://localhost:3101` and sign in.
 
 Check TV `Seasons` across shows and `Folders` in movie, TV and music libraries.
 Use nested folders with mixed files; verify breadcrumbs, Up, browser history,
@@ -74,7 +76,7 @@ to the same gallery position. Queue/profile lifecycle and request contracts also
 have mocked tests; browser playback with synthetic audio does not verify PMS
 conversion or device codec support.
 
-Ports are configurable through `PLEX_TEST_PORT` and `NEVU_TEST_PORT`.
+Ports are configurable through `PLEX_TEST_PORT` and `FRIWATCH_TEST_PORT`.
 For a remote host, forward the localhost ports through an SSH tunnel.
 Use `PLEX_TEST_IMAGE` to select a Plex version and record it with test results.
 Authentication and online metadata features still use Plex services.
@@ -168,7 +170,7 @@ For music playlists, add tracks and complete albums/artists from their menus,
 verify audio/video separation, and start playback at a selected track or shuffled.
 Edit saved contents while the native playback queue continues independently.
 Check music playlist rows, album/artist links and the same editing dialogs on mobile.
-Change titles and list contents in Plex while browsing Nevu; check background
+Change titles and list contents in Plex while browsing FriWatch; check background
 updates, retained scroll/filters, hidden-tab return, connection recovery and Retry
 after a failed refresh. Include a scrolled multi-page list and profile switches.
 Jump to a distant range after replacement page requests have started; obsolete

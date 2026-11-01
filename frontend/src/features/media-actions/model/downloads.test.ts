@@ -41,7 +41,7 @@ it("builds an authenticated URL for the original file", () => {
   });
 
   const [download] = getOriginalDownloads(metadata(), true);
-  const url = new URL(download.href, "http://nevu.local");
+  const url = new URL(download.href, "http://friwatch.local");
 
   expect(url.pathname).toBe("/dynproxy/library/parts/20/123456/file.mkv");
   expect(url.searchParams.get("existing")).toBe("value");

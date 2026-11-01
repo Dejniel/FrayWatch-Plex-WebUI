@@ -6,7 +6,7 @@ import {
   photoItems,
   photoViewerRange,
 } from "./photos";
-import type { LibraryEntryDto } from "@nevu/contracts";
+import type { LibraryEntryDto } from "@friwatch/contracts";
 
 it.each([null, "", "-1", "1.5", "Infinity", "9007199254740992", "1e3"])(
   "rejects invalid photo indexes (%s)",

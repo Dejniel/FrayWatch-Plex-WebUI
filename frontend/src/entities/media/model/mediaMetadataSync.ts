@@ -1,6 +1,6 @@
 import type { MediaMetadata } from "plex/media";
 import type { QueryClient } from "@tanstack/react-query";
-import { isLibraryContainerType } from "@nevu/contracts";
+import { isLibraryContainerType } from "@friwatch/contracts";
 import {
   affectedMediaParents,
   type ReconciledMediaChange,

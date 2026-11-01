@@ -11,7 +11,7 @@ import {
   plexFields,
 } from "shared/api/plexResponse";
 import type { MediaMetadata, MediaStream } from "plex/media";
-import { normalizeLibraryRecord } from "@nevu/contracts";
+import { normalizeLibraryRecord } from "@friwatch/contracts";
 
 import { readTitleFields, readMediaTag as readTag } from "./mediaTitle";
 

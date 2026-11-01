@@ -1,4 +1,4 @@
-import type { PlexPreference } from "@nevu/contracts";
+import type { PlexPreference } from "@friwatch/contracts";
 
 const GROUP_LABELS: Record<string, string> = {
   general: "General",

@@ -1,4 +1,4 @@
-import { isLibraryItemType } from "@nevu/contracts";
+import { isLibraryItemType } from "@friwatch/contracts";
 import { isBrowsableLibraryType, libraryViews } from "./libraryBrowsing";
 
 it.each(["movie", "show"])("keeps video views available for %s", type => {

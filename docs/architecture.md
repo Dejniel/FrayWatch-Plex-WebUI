@@ -363,7 +363,7 @@ failed downloads/selections retain playback and remain visible for retry.
 Local extras, Discover trailers, card previews, and full playback share this
 engine. Local extras use the same fallback controller; Discover has its own source
 resolver and checked cloud display/stream contracts. Obsolete resolution requests
-are cancelled. Plex supplies conversions; Nevu has no separate transcoder.
+are cancelled. Plex supplies conversions; FriWatch has no separate transcoder.
 
 Playback setup shares the media metadata API and uses the known server ID for
 queue creation. Queue failures remain retryable warnings; transient progress-report

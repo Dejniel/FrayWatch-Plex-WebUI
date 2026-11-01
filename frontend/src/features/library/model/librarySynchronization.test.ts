@@ -1,4 +1,4 @@
-import type { LibraryFilterExpression } from "@nevu/contracts";
+import type { LibraryFilterExpression } from "@friwatch/contracts";
 import type { MediaChange } from "entities/media/model";
 import { libraryPageQueryKey, libraryResultQueryKey, type LibraryQuery } from "./libraryQuery";
 import { decideLibrarySynchronization } from "./librarySynchronization";

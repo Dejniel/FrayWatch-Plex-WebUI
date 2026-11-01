@@ -27,7 +27,7 @@ import { httpErrorHandler } from './httpErrors.js';
     * PLEX_SERVER: The URL of the Plex server that the frontend will connect to
     * TLS_CERT_PATH and TLS_KEY_PATH?: Enable HTTPS with the provided PEM files
     * DISABLE_TLS_VERIFY?: If set to true, the proxy will not check any https ssl certificates
-    * DISABLE_NEVU_SYNC?: If set to true, NEVU sync (watch together) will be disabled
+    * DISABLE_WATCH_TOGETHER?: If set to true, FriWatch Sync (watch together) will be disabled
     * DISABLE_REQUEST_LOGGING?: If set to true, the server will not log any requests
 **/
 const deploymentID = randomBytes(8).toString('hex');
@@ -82,10 +82,10 @@ function getDiscoverHeaders(req: express.Request) {
     return {
         'Accept': 'application/json',
         'X-Plex-Token': token,
-        'X-Plex-Product': 'NEVU',
+        'X-Plex-Product': 'FriWatch',
         'X-Plex-Version': APP_VERSION,
         'X-Plex-Client-Identifier': String(
-            req.headers['x-plex-client-identifier'] || 'nevu-web'
+            req.headers['x-plex-client-identifier'] || 'friwatch-web'
         ),
     };
 }
@@ -173,7 +173,7 @@ app.get('/config', (_req, res) => {
         PLEX_SERVER: process.env.PLEX_SERVER,
         DEPLOYMENTID: deploymentID,
         CONFIG: {
-            DISABLE_NEVU_SYNC: process.env.DISABLE_NEVU_SYNC === 'true',
+            DISABLE_WATCH_TOGETHER: process.env.DISABLE_WATCH_TOGETHER === 'true',
         }
     });
 });
@@ -273,7 +273,7 @@ server.listen(listenPort, () => {
     console.log(`Server started on ${usesTls ? 'https' : 'http'}://localhost:${listenPort}`);
 });
 
-const io = (process.env.DISABLE_NEVU_SYNC === 'true') ? null : new SocketIOServer(server, {
+const io = (process.env.DISABLE_WATCH_TOGETHER === 'true') ? null : new SocketIOServer(server, {
     cors: {
         origin: '*',
     },
@@ -286,7 +286,7 @@ const remoteIo = new SocketIOServer(server, {
     cors: {
         origin: '*',
     },
-    path: '/nevu-remote',
+    path: '/friwatch-remote',
     connectionStateRecovery: {
         maxDisconnectionDuration: 10000, // 10 seconds
         skipMiddlewares: false, // Skip middlewares for remote connections

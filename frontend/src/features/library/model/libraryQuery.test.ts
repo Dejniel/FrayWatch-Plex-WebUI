@@ -1,5 +1,5 @@
 import { libraryRootQueryType, libraryResultQueryKey, musicChildrenQuery } from "./libraryQuery";
-import { libraryEntryKey } from "@nevu/contracts";
+import { libraryEntryKey } from "@friwatch/contracts";
 
 it("uses Plex's disc-aware indexed order for album tracks", () => {
   expect(

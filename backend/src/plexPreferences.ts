@@ -3,7 +3,7 @@ import express from 'express';
 import {
     normalizePlexPreferences,
     validatePreferenceChanges,
-} from '@nevu/contracts';
+} from '@friwatch/contracts';
 import {
     plexManagement,
     sendPlexManagementError,

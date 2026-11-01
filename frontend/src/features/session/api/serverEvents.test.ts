@@ -1,7 +1,7 @@
 import { connectPlexServerEvents } from "./serverEvents";
 
 vi.mock("shared/api/backend", () => ({
-  getBackendURL: () => "https://nevu.test",
+  getBackendURL: () => "https://friwatch.test",
 }));
 const streams: FakeStream[] = [];
 class FakeStream extends EventTarget {
@@ -27,7 +27,7 @@ it("uses the existing proxy and parses named events without exposing partial med
   const close = connectPlexServerEvents("test-token", change);
   const current = streams[0];
   const url = new URL(current.url);
-  expect(url.origin).toBe("https://nevu.test");
+  expect(url.origin).toBe("https://friwatch.test");
   expect(url.pathname).toBe("/dynproxy/:/eventsource/notifications");
   expect(url.searchParams.get("X-Plex-Token")).toBe("test-token");
   current.dispatchEvent(

@@ -1,5 +1,5 @@
 import { hashKey, useQueries, useQuery } from "@tanstack/react-query";
-import type { LibraryEntryDto, LibraryPageDto } from "@nevu/contracts";
+import type { LibraryEntryDto, LibraryPageDto } from "@friwatch/contracts";
 import { useServerSession } from "features/session/model";
 import { serverQueryClient } from "shared/api/queryClient";
 import type { GridRange } from "shared/lib/useVirtualGrid";

@@ -1,5 +1,5 @@
 import { focusManager } from "@tanstack/react-query";
-import { changedMediaFields } from "@nevu/contracts";
+import { changedMediaFields } from "@friwatch/contracts";
 import {
   type MediaMetadata,
   applyAvailabilityChanges,

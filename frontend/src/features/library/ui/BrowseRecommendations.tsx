@@ -1,6 +1,6 @@
 import type { LibraryCatalog, LibraryDirectory } from "entities/library/model";
 import type { MediaMetadata } from "entities/media/model";
-import type { LibraryFilterExpression, LibraryItemType } from "@nevu/contracts";
+import type { LibraryFilterExpression, LibraryItemType } from "@friwatch/contracts";
 import { Box, CircularProgress, Typography } from "@mui/material";
 import { motion } from "motion/react";
 import React from "react";

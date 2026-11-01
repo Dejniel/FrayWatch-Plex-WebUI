@@ -13,7 +13,7 @@ import { readDiscoverExtras, readDiscoverStream } from "./mediaExtrasResponses";
 function discoverHeaders() {
   return {
     "X-Plex-Token": AuthStorage.getProfileAccountToken() || "",
-    "X-Plex-Client-Identifier": localStorage.getItem("clientID") || "nevu-web",
+    "X-Plex-Client-Identifier": localStorage.getItem("clientID") || "friwatch-web",
   };
 }
 

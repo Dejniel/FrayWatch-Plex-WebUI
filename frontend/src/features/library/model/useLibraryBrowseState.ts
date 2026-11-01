@@ -1,8 +1,8 @@
 import type { LibraryCatalog } from "entities/library/model";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { useLocation, useSearchParams } from "react-router-dom";
-import type { LibraryFilterClause, LibrarySort } from "@nevu/contracts";
-import { isLibraryItemType, isVideoLibraryItemType } from "@nevu/contracts";
+import type { LibraryFilterClause, LibrarySort } from "@friwatch/contracts";
+import { isLibraryItemType, isVideoLibraryItemType } from "@friwatch/contracts";
 import { useActiveServerScope } from "features/session/model";
 import {
   libraryBrowseViews,

@@ -4,7 +4,7 @@ import { usePreferenceDraft } from "entities/plex-preferences/model";
 import {
   validatePreferenceChanges,
   type PlexPreference,
-} from "@nevu/contracts";
+} from "@friwatch/contracts";
 import { serverQueryClient } from "shared/api/queryClient";
 import { createMetadataEditor, MetadataSaveError } from "../api/metadata";
 import {

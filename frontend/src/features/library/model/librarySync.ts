@@ -4,7 +4,7 @@ import {
   changedMediaFields,
   type LibraryItemUpdateDto,
   type LibraryPageDto,
-} from "@nevu/contracts";
+} from "@friwatch/contracts";
 import { affectedMediaParents, type MediaChange, type MediaScope, type ReconciledMediaChange } from "entities/media/model";
 import {
   decideLibrarySynchronization,

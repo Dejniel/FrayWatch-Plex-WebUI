@@ -2,7 +2,7 @@ import {
   isLibraryItemType,
   libraryItemTypeNumbers,
   validatePreferenceChanges,
-} from "@nevu/contracts";
+} from "@friwatch/contracts";
 import { useServerSession } from "features/session/model";
 import { prepareMusicEdit } from "./metadataMusic";
 import {

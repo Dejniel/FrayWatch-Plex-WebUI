@@ -1,4 +1,4 @@
-import { isVideoLibraryItemType } from "@nevu/contracts";
+import { isVideoLibraryItemType } from "@friwatch/contracts";
 import { create } from "zustand";
 import type { MediaScope, MediaItemData } from "entities/media/model";
 import {

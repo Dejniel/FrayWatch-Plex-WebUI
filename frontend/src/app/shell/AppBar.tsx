@@ -142,7 +142,7 @@ function ApplicationBar() {
           <ListItemText>Sponsor</ListItemText>
         </MenuItem>
 
-        {!config.DISABLE_NEVU_SYNC && (
+        {!config.DISABLE_WATCH_TOGETHER && (
           <MenuItem
             onClick={() => {
               useWatchTogetherDialog.getState().setOpen(true);
@@ -263,8 +263,8 @@ S - Skip onscreen markers (intro, credits, etc)
           }}
         >
           <img
-            src="/nevu-next-right.svg"
-            alt="Nevu Next"
+            src="/friwatch-logo.svg"
+            alt="FriWatch"
             style={{
               width: isMobile
                 ? "clamp(118px, 36vw, 150px)"
@@ -391,9 +391,9 @@ S - Skip onscreen markers (intro, credits, etc)
         >
           <Box sx={{ p: 2, display: "flex", flexDirection: "column", gap: 2 }}>
             <img
-              src="/nevu-next-below.svg"
+              src="/friwatch-logo.svg"
               alt=""
-              width="140"
+              height="35"
               style={{ objectFit: "contain" }}
             />
 
@@ -446,7 +446,7 @@ S - Skip onscreen markers (intro, credits, etc)
                 </ListItemButton>
               </ListItem>
 
-              {!config.DISABLE_NEVU_SYNC && (
+              {!config.DISABLE_WATCH_TOGETHER && (
                 <ListItem disablePadding>
                   <ListItemButton
                     onClick={() => {

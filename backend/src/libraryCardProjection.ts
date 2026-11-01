@@ -1,5 +1,5 @@
-import { isLibraryItemType, isVideoLibraryItemType, normalizeLibraryRecord } from '@nevu/contracts';
-import type { LibraryCardDto, LibraryFolderDto, LibraryItemType, LibraryPageDto } from '@nevu/contracts';
+import { isLibraryItemType, isVideoLibraryItemType, normalizeLibraryRecord } from '@friwatch/contracts';
+import type { LibraryCardDto, LibraryFolderDto, LibraryItemType, LibraryPageDto } from '@friwatch/contracts';
 
 type JsonObject = Record<string, unknown>;
 

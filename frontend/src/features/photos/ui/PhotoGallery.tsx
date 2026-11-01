@@ -1,4 +1,4 @@
-import { libraryEntryKey } from "@nevu/contracts";
+import { libraryEntryKey } from "@friwatch/contracts";
 import React, { useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import {

@@ -1,12 +1,13 @@
-import { createTheme } from "@mui/material";
+import { alpha, createTheme } from "@mui/material";
 
 export const appTheme = createTheme({
   palette: {
     mode: "dark",
     primary: {
-      main: "#6366F1", // Indigo
-      dark: "#4F46E5",
-      light: "#818CF8",
+      main: "#FFC222",
+      dark: "#DFA600",
+      light: "#FFD566",
+      contrastText: "#17181C",
     },
     secondary: {
       main: "#F43F5E", // Rose
@@ -14,12 +15,12 @@ export const appTheme = createTheme({
       light: "#FB7185",
     },
     background: {
-      default: "#222222",
-      paper: "#121927",
+      default: "#18191D",
+      paper: "#202126",
     },
     text: {
-      primary: "#F4F8FF",
-      secondary: "#CBD5E1",
+      primary: "#F4F4F5",
+      secondary: "#BFC1C7",
     },
     success: {
       main: "#10B981",
@@ -59,29 +60,25 @@ export const appTheme = createTheme({
           transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
         },
         contained: {
-          backgroundColor: "rgba(18, 25, 39, 0.8)",
-          backdropFilter: "blur(20px)",
-          border: "1px solid rgba(255,255,255,0.2)",
-          color: "#fff",
+          boxShadow: "none",
           "&:hover": {
-            backgroundColor: "rgba(18, 25, 39, 0.95)",
-            border: "1px solid rgba(99, 102, 241, 0.5)",
+            boxShadow: "none",
           },
         },
         outlined: {
-          backgroundColor: "rgba(18, 25, 39, 0.6)",
+          backgroundColor: "rgba(32, 33, 38, 0.6)",
           backdropFilter: "blur(20px)",
           border: "1px solid rgba(255,255,255,0.2)",
           color: "#fff",
           "&:hover": {
-            backgroundColor: "rgba(18, 25, 39, 0.85)",
+            backgroundColor: "rgba(32, 33, 38, 0.85)",
             border: "1px solid rgba(255,255,255,0.3)",
           },
         },
         text: {
           color: "rgba(255,255,255,0.9)",
           "&:hover": {
-            backgroundColor: "rgba(18, 25, 39, 0.5)",
+            backgroundColor: "rgba(32, 33, 38, 0.5)",
             backdropFilter: "blur(10px)",
             transform: "none",
             boxShadow: "none",
@@ -106,7 +103,7 @@ export const appTheme = createTheme({
     MuiPaper: {
       styleOverrides: {
         root: {
-          backgroundColor: "rgba(18, 25, 39, 0.9)",
+          backgroundColor: "rgba(32, 33, 38, 0.9)",
           backdropFilter: "blur(20px)",
           border: "1px solid rgba(255,255,255,0.1)",
           borderRadius: "4px",
@@ -125,7 +122,7 @@ export const appTheme = createTheme({
     MuiCard: {
       styleOverrides: {
         root: {
-          backgroundColor: "rgba(18, 25, 39, 0.8)",
+          backgroundColor: "rgba(32, 33, 38, 0.8)",
           backdropFilter: "blur(20px)",
           border: "1px solid rgba(255,255,255,0.1)",
           borderRadius: "6px",
@@ -206,12 +203,12 @@ export const appTheme = createTheme({
           "& .MuiSlider-thumb": {
             width: 16,
             height: 16,
-            backgroundColor: "#6366F1",
+            backgroundColor: "currentColor",
             border: "2px solid rgba(255,255,255,0.3)",
             transition: "all 0.2s ease",
           },
           "& .MuiSlider-track": {
-            backgroundColor: "#6366F1",
+            backgroundColor: "currentColor",
             border: "none",
             borderRadius: "4px",
           },
@@ -239,7 +236,7 @@ export const appTheme = createTheme({
     },
     MuiTab: {
       styleOverrides: {
-        root: {
+        root: ({ theme }) => ({
           textTransform: "none",
           fontWeight: 600,
           borderRadius: "4px",
@@ -249,19 +246,19 @@ export const appTheme = createTheme({
             backgroundColor: "rgba(255,255,255,0.08)",
           },
           "&.Mui-selected": {
-            backgroundColor: "rgba(99, 102, 241, 0.15)",
-            color: "#818CF8",
+            backgroundColor: alpha(theme.palette.primary.main, 0.12),
+            color: theme.palette.primary.main,
           },
-        },
+        }),
       },
     },
     MuiSwitch: {
       styleOverrides: {
-        root: {
+        root: ({ theme }) => ({
           "& .MuiSwitch-switchBase": {
             "&.Mui-checked": {
               "& + .MuiSwitch-track": {
-                backgroundColor: "#6366F1",
+                backgroundColor: theme.palette.primary.main,
               },
             },
           },
@@ -273,7 +270,7 @@ export const appTheme = createTheme({
             backgroundColor: "#fff",
             boxShadow: "0 2px 4px rgba(0,0,0,0.2)",
           },
-        },
+        }),
       },
     },
   },

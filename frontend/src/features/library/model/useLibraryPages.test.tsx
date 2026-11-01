@@ -1,7 +1,7 @@
 import React, { act } from "react";
 import { createRoot, type Root } from "react-dom/client";
 import { focusManager } from "@tanstack/react-query";
-import type { LibraryPageDto, LibraryPageRequest, LibraryVideoCardDto } from "@nevu/contracts";
+import type { LibraryPageDto, LibraryPageRequest, LibraryVideoCardDto } from "@friwatch/contracts";
 import { useServerSession } from "features/session/model";
 import { serverQueryClient as client } from "shared/api/queryClient";
 import { getLibraryPage, LibraryPageError } from "../api/libraryPage";

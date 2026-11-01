@@ -52,7 +52,7 @@ export function authErrorMessage(
       "The selected profile cannot access this Plex server.",
       "The selected profile does not have access to this server.",
       "Plex did not return a profile token.",
-      "Nevu cannot reach the configured Plex server.",
+      "FriWatch cannot reach the configured Plex server.",
     ];
     if (safeMessages.includes(error.message)) return error.message;
   }

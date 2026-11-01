@@ -1,4 +1,4 @@
-import { isLibraryContainerType, libraryFieldsUnaffected, libraryFilterUnaffected } from "@nevu/contracts";
+import { isLibraryContainerType, libraryFieldsUnaffected, libraryFilterUnaffected } from "@friwatch/contracts";
 import {
   matchesMediaScope,
   type MediaChange,

@@ -3,7 +3,7 @@ import {
   preferenceChanges,
   preferenceValueError,
   validatePreferenceChanges,
-} from "@nevu/contracts";
+} from "@friwatch/contracts";
 
 const preferences = normalizePlexPreferences([
   {

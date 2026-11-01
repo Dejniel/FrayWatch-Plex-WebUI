@@ -3,7 +3,7 @@ import {
   changedMediaFields,
   mediaFieldsUnaffected,
   mediaMetadataIncludes,
-} from "@nevu/contracts";
+} from "@friwatch/contracts";
 import {
   affectedMediaParents,
   type ReconciledMediaChange,

@@ -22,7 +22,7 @@ describe("buildPlexAuthUrl", () => {
     const url = buildPlexAuthUrl({
       clientIdentifier: "client&id",
       pinCode: "pin=code",
-      forwardUrl: "http://nevu.test:3101/login?pinID=123",
+      forwardUrl: "http://friwatch.test:3101/login?pinID=123",
     });
     const [baseUrl, query] = url.split("#?");
     const params = new URLSearchParams(query);
@@ -30,9 +30,9 @@ describe("buildPlexAuthUrl", () => {
     expect(baseUrl).toBe("https://app.plex.tv/auth");
     expect(params.get("clientID")).toBe("client&id");
     expect(params.get("code")).toBe("pin=code");
-    expect(params.get("context[device][product]")).toBe("NEVU");
+    expect(params.get("context[device][product]")).toBe("FriWatch");
     expect(params.get("forwardUrl")).toBe(
-      "http://nevu.test:3101/login?pinID=123",
+      "http://friwatch.test:3101/login?pinID=123",
     );
   });
 
@@ -104,7 +104,7 @@ describe("buildPlexAuthUrl", () => {
       {
         headers: expect.objectContaining({
           Accept: "application/xml",
-          "X-Plex-Product": "NEVU",
+          "X-Plex-Product": "FriWatch",
           "X-Plex-Token": "owner-token",
         }),
       },
