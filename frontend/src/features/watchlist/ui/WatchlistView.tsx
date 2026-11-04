@@ -16,6 +16,7 @@ import { useLibraries } from "entities/library/model";
 import {
   type DiscoverTitle,
   mediaCardWidth,
+  MEDIA_CARD_FOOTER_HEIGHT,
   selectLocalMedia,
   useMediaAvailability,
 } from "entities/media/model";
@@ -89,7 +90,7 @@ export default function WatchlistView({
     count: selected.length,
     itemWidth: mediaCardWidth(cardView.layout, cardView.size),
     imageAspectRatio: cardView.layout === "poster" ? 2 / 3 : 16 / 9,
-    footerHeight: 94,
+    footerHeight: MEDIA_CARD_FOOTER_HEIGHT,
     observeRef: toolbarRef,
     resetKey: `${libraryID ?? "all"}:${libraryOnly}:${search}:${sort}`,
   });

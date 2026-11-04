@@ -49,7 +49,7 @@ import {
   type TitleDetailsTab,
 } from "../model/titleDetailsTabs";
 
-const DETAILS_WIDTH = 1440;
+const DETAILS_WIDTH = "110rem";
 const DETAILS_GUTTER = { xs: 2, sm: 3, md: 4 };
 function TitleDetailsScreen() {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -140,7 +140,7 @@ function TitleDetailsScreen() {
     ? getResponsiveTranscodeImageProps(data.art, {
         widths: HERO_IMAGE_WIDTHS,
         aspectRatio: 16 / 9,
-        sizes: "(max-width: 600px) 100vw, (max-width: 1600px) 90vw, 1440px",
+        sizes: "(max-width: 600px) 100vw, min(90vw, 110rem)",
         fallbackWidth: 1280,
       })
     : null;
@@ -149,7 +149,7 @@ function TitleDetailsScreen() {
     ? getResponsiveTranscodeImageProps(posterPath, {
         widths: DETAIL_POSTER_IMAGE_WIDTHS,
         aspectRatio: 2 / 3,
-        sizes: "(max-width: 600px) min(64vw, 240px), clamp(180px, 22vw, 280px)",
+        sizes: "(max-width: 600px) min(64vw, 15rem), clamp(11.25rem, 22vw, 17.5rem)",
         fallbackWidth: 480,
       })
     : null;
@@ -214,12 +214,10 @@ function TitleDetailsScreen() {
           component="header"
           sx={{
             width: "100%",
-            display: "grid",
-            gridTemplateColumns: {
-              xs: "minmax(0, 1fr)",
-              sm: "clamp(180px, 22vw, 280px) minmax(0, 1fr)",
-            },
-            alignItems: "start",
+            display: "flex",
+            flexWrap: "wrap",
+            alignItems: "flex-start",
+            justifyContent: { xs: "center", sm: "flex-start" },
             gap: { xs: 3, md: 4 },
             px: DETAILS_GUTTER,
             pt: 5,
@@ -265,8 +263,8 @@ function TitleDetailsScreen() {
           />
           <Box
             sx={{
-              width: { xs: "min(64vw, 240px)", sm: "100%" },
-              justifySelf: { xs: "center", sm: "stretch" },
+              width: { xs: "min(64vw, 15rem)", sm: "clamp(11.25rem, 22vw, 17.5rem)" },
+              flexShrink: 0,
               borderRadius: "10px",
               overflow: "hidden",
               boxShadow: (theme) =>
@@ -296,6 +294,7 @@ function TitleDetailsScreen() {
           <Box
             sx={{
               width: "100%",
+              flex: "1 1 30rem",
               minWidth: 0,
               display: "flex",
               flexDirection: "column",
@@ -351,7 +350,7 @@ function TitleDetailsScreen() {
                 <Typography
                   sx={{
                     mt: 0.25,
-                    fontSize: { xs: "0.7rem", sm: "0.75rem" },
+                    fontSize: "0.8125rem",
                     lineHeight: 1.3,
                     color: "text.secondary",
                     textAlign: { xs: "center", sm: "left" },

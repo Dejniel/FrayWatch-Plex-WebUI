@@ -1,4 +1,20 @@
-import { mediaArtworkPath, mediaCardAspectRatio } from "./mediaArtwork";
+import { mediaArtworkPath, mediaCardAspectRatio, mediaCardWidth, normalizeCardSize } from "./mediaArtwork";
+
+it("retains saved card sizes and supports the extended range", () => {
+  for (const size of [0, 40, 100, 150, 200])
+    expect(normalizeCardSize(String(size))).toBe(size);
+  expect(mediaCardWidth("landscape", 40)).toBe(278);
+  expect(mediaCardWidth("landscape", 100)).toBe(410);
+  expect(mediaCardWidth("landscape", 200)).toBe(630);
+  expect(mediaCardWidth("poster", 200)).toBe(460);
+});
+
+it("bounds invalid persisted card sizes before computing viewport geometry", () => {
+  expect(normalizeCardSize("-20")).toBe(0);
+  expect(normalizeCardSize("500")).toBe(200);
+  for (const value of [undefined, "unknown", "Infinity"])
+    expect(normalizeCardSize(value)).toBe(40);
+});
 
 it("prefers a poster thumbnail and falls back to art", () => {
   expect(mediaArtworkPath({ type: "movie", thumb: "/poster", art: "/art" }, "poster"))

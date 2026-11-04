@@ -1,5 +1,5 @@
 import { Alert, Box, Button, Skeleton } from "@mui/material";
-import { MovieItemSlider } from "features/library/public";
+import { MovieItemSlider, useLibraryCardView } from "features/library/public";
 import { useCanManageServer } from "features/session/public";
 import { useUserSettings } from "features/settings/model";
 import { useWatchlist } from "features/watchlist/model";
@@ -13,6 +13,7 @@ export default function HomeScreen() {
   const watchlist = useWatchlist().data ?? [];
   const canManageServer = useCanManageServer();
   const { settings } = useUserSettings();
+  const { size: cardSize } = useLibraryCardView();
   const { shelves, hero, heroLoading, catalogStatus, clearHero, refresh } =
     useHomeDiscovery(settings);
 
@@ -24,6 +25,7 @@ export default function HomeScreen() {
           <Box sx={{ pb: 8 }}>
             <MovieItemSlider
               title="Watchlist"
+              cardSize={cardSize}
               data={watchlist}
               plexTvSource
               browseTo="/watchlist"
@@ -72,6 +74,7 @@ export default function HomeScreen() {
       >
         <MovieItemSlider
           title="Continue Watching"
+          cardSize={cardSize}
           dir="/library/onDeck"
           link="/library/onDeck"
         />
@@ -79,6 +82,7 @@ export default function HomeScreen() {
         {watchlist.length > 0 && (
           <MovieItemSlider
             title="Watchlist"
+            cardSize={cardSize}
             data={watchlist}
             plexTvSource
             browseTo="/watchlist"
@@ -89,6 +93,7 @@ export default function HomeScreen() {
           <MovieItemSlider
             key={`${shelf.libraryID}:${shelf.dir}`}
             title={shelf.title}
+            cardSize={cardSize}
             dir={shelf.dir}
             shuffle
             link={shelf.link}

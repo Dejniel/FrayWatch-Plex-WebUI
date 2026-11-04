@@ -8,6 +8,7 @@ import { Link, type To } from "react-router-dom";
 import {
   mediaCardAspectRatio,
   mediaCardWidth,
+  MEDIA_CARD_FOOTER_HEIGHT,
   type MediaArtworkLayout,
   type MediaItemData,
 } from "entities/media/model";
@@ -74,7 +75,10 @@ export function MediaShelf({
     pages - 1,
   );
   const start = page * columns;
-  const cardWidth = Math.max(1, (width - GAP * (columns - 1)) / columns);
+  const cardWidth = Math.min(
+    mediaCardWidth(layout, cardSize),
+    Math.max(1, (width - GAP * (columns - 1)) / columns),
+  );
   const previousPage = useRef(page);
   const animate = Math.abs(page - previousPage.current) <= 1;
   useLayoutEffect(() => {
@@ -253,27 +257,29 @@ export function MediaShelf({
                   minWidth: 0,
                 }}
               >
-                {!pending && near ? (
-                  <ActionableMediaCard
-                    item={data[index]}
-                    layout={layout}
-                    PlexTvSource={plexTvSource}
-                    imageSizes={`${Math.ceil(cardWidth)}px`}
-                  />
-                ) : (
-                  <Box aria-hidden="true">
-                    <Skeleton
-                      variant="rounded"
-                      animation={pending ? "wave" : false}
-                      sx={{
-                        width: "100%",
-                        height: "auto",
-                        aspectRatio: mediaCardAspectRatio(layout),
-                      }}
+                <Box sx={{ width: "100%", maxWidth: cardWidth, mx: "auto" }}>
+                  {!pending && near ? (
+                    <ActionableMediaCard
+                      item={data[index]}
+                      layout={layout}
+                      PlexTvSource={plexTvSource}
+                      imageSizes={`${Math.ceil(cardWidth)}px`}
                     />
-                    <Box sx={{ height: 60 }} />
-                  </Box>
-                )}
+                  ) : (
+                    <Box aria-hidden="true">
+                      <Skeleton
+                        variant="rounded"
+                        animation={pending ? "wave" : false}
+                        sx={{
+                          width: "100%",
+                          height: "auto",
+                          aspectRatio: mediaCardAspectRatio(layout),
+                        }}
+                      />
+                      <Box sx={{ height: MEDIA_CARD_FOOTER_HEIGHT }} />
+                    </Box>
+                  )}
+                </Box>
               </Box>
             );
           })}

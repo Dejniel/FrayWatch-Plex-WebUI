@@ -40,6 +40,7 @@ export const appTheme = createTheme({
   },
   typography: {
     fontFamily: '"Inter Variable", sans-serif',
+    caption: { fontSize: "0.8125rem", lineHeight: 1.5 },
   },
   components: {
     MuiAppBar: {

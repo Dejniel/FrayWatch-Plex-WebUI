@@ -46,6 +46,7 @@ import {
 } from "shared/lib/navigation";
 import type { MediaItemData } from "../model/media";
 import { MediaRow } from "./MediaRow";
+import { mediaCardTypography } from "./mediaCardTypography";
 import {
   formatMediaRating,
   getPrimaryMediaRating,
@@ -126,6 +127,7 @@ function GridMediaCard({
         justifyContent: "flex-start",
         width: "100%",
         minWidth: "100%",
+        containerType: "inline-size",
         backgroundColor: "rgba(18, 18, 22, 0.7)",
         backdropFilter: "blur(15px)",
         border: "1px solid rgba(255,255,255,0.08)",
@@ -361,16 +363,17 @@ function GridMediaCard({
               <Box sx={{ display: "flex", alignItems: "center", gap: "4px" }}>
                 <CheckCircleOutlineRounded
                   sx={{
-                    fontSize: "14px",
+                    fontSize: "1rem",
                     color: (theme) => theme.palette.primary.light,
                   }}
                 />
                 <Typography
                   sx={{
-                    fontSize: "10px",
+                    ...mediaCardTypography.badge,
                     fontWeight: "700",
                     letterSpacing: "0.05em",
                     color: "rgba(255,255,255,0.9)",
+                    "@container (max-width: 12rem)": { display: "none" },
                   }}
                 >
                   Watched
@@ -400,10 +403,10 @@ function GridMediaCard({
               zIndex: 10,
             }}
           >
-            <StarRounded sx={{ fontSize: "13px", color: "#f5c518" }} />
+            <StarRounded sx={{ fontSize: "1rem", color: "#f5c518" }} />
             <Typography
               sx={{
-                fontSize: "11px",
+                fontSize: "clamp(0.75rem, 3.2cqi, 0.875rem)",
                 fontWeight: "600",
                 color: "rgba(255,255,255,0.9)",
                 lineHeight: 1.4,
@@ -455,17 +458,13 @@ function GridMediaCard({
         {/* Title */}
         <Typography
           sx={{
-            fontSize: "0.95rem",
+            ...mediaCardTypography.title,
             fontWeight: "600",
             color: (theme) => theme.palette.text.primary,
             textOverflow: "ellipsis",
             overflow: "hidden",
             whiteSpace: "nowrap",
             width: "100%",
-            lineHeight: 1.3,
-            "@media (max-width: 2000px)": {
-              fontSize: "0.9rem",
-            },
           }}
         >
           {cardTitle}
@@ -483,10 +482,9 @@ function GridMediaCard({
         >
           <Typography
             sx={{
-              fontSize: "11px",
+              ...mediaCardTypography.subtitle,
               fontWeight: "500",
               color: (theme) => theme.palette.text.secondary,
-              opacity: 0.7,
               textOverflow: "ellipsis",
               overflow: "hidden",
               whiteSpace: "nowrap",
@@ -500,9 +498,8 @@ function GridMediaCard({
             <Typography
               title={qualityLabel}
               sx={{
-                fontSize: "9px",
+                ...mediaCardTypography.badge,
                 fontWeight: "700",
-                lineHeight: 1,
                 color: "rgba(255,255,255,0.72)",
                 backgroundColor: "rgba(255,255,255,0.08)",
                 border: "1px solid rgba(255,255,255,0.12)",

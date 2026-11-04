@@ -12,20 +12,11 @@ import {
 } from "@mui/material";
 import React from "react";
 import { useUserSettings } from "features/settings/model";
-import type { MediaArtworkLayout } from "entities/media/model";
+import { MAX_CARD_SIZE, normalizeCardSize, type MediaArtworkLayout } from "entities/media/model";
 
 export type LibraryCardLayout = MediaArtworkLayout;
 export type LibraryCardView = Omit<ReturnType<typeof useLibraryCardView>, "layout"> & {
   layout: LibraryCardLayout;
-};
-
-const DEFAULT_CARD_SIZE = 40;
-
-const normalizeCardSize = (value: string | undefined) => {
-  const parsed = Number(value);
-  return Number.isFinite(parsed)
-    ? Math.min(100, Math.max(0, parsed))
-    : DEFAULT_CARD_SIZE;
 };
 
 export function useLibraryCardView() {
@@ -91,7 +82,7 @@ export function LibraryCardViewControls({
         <Slider
           aria-label="Library card size"
           min={0}
-          max={100}
+          max={MAX_CARD_SIZE}
           step={1}
           value={size}
           onChange={(_, value) => onSizeChange(value as number)}

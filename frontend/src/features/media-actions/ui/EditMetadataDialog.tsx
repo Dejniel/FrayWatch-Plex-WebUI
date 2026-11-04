@@ -67,7 +67,7 @@ function OpenedMetadataEditor({ data, onClose, onSaved, onRelocated }: Props) {
     <AppDialog
       open
       title="Edit metadata"
-      maxWidth={1100}
+      maxWidth="70rem"
       busy={editor.mutation.isPending}
       onClose={onClose}
       actions={

@@ -68,7 +68,7 @@ const next = () =>
 it("sizes cards from the actual container, makes every supplied title reachable and renders bounded nearby cards", async () => {
   await render();
   expect(active()).toEqual(["Movie 0", "Movie 1", "Movie 2"]);
-  expect(card.mock.calls.at(-1)![0].imageSizes).toBe("294px");
+  expect(card.mock.calls.at(-1)![0].imageSizes).toBe("278px");
   expect(
     host.querySelectorAll('[aria-roledescription="slide"] button'),
   ).toHaveLength(6);
@@ -85,6 +85,13 @@ it("sizes cards from the actual container, makes every supplied title reachable 
   expect(active()).toEqual(["Movie 0", "Movie 1", "Movie 2"]);
 });
 
+it("keeps large shelf cards at the same width as catalog cards", async () => {
+  width = 2560;
+  await render({ cardSize: 200 });
+  expect(active()).toHaveLength(4);
+  expect(card.mock.calls.every(([props]) => props.imageSizes === "630px")).toBe(true);
+});
+
 it("keeps the current anchor on metadata updates and container resizing, and clamps shrinking results", async () => {
   await render();
   await next();
@@ -97,7 +104,7 @@ it("keeps the current anchor on metadata updates and container resizing, and cla
   width = 300;
   await act(async () => resize([], {} as ResizeObserver));
   expect(active()).toEqual(["Movie 6!"]);
-  expect(card.mock.calls.at(-1)![0].imageSizes).toBe("300px");
+  expect(card.mock.calls.at(-1)![0].imageSizes).toBe("278px");
   await render({ data: updated.slice(0, 2) });
   expect(active()).toEqual(["Movie 1!"]);
 });
@@ -156,7 +163,7 @@ it("remeasures a restored empty shelf before requesting card-sized artwork", asy
   card.mockClear();
   await render();
   expect(active()).toEqual(["Movie 0"]);
-  expect(card.mock.calls.every(([props]) => props.imageSizes === "300px")).toBe(
+  expect(card.mock.calls.every(([props]) => props.imageSizes === "278px")).toBe(
     true,
   );
 });

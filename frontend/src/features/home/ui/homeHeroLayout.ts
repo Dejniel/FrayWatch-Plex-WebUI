@@ -18,7 +18,7 @@ export const homeHeroSx = {
 export const homeHeroContentSx = {
   position: "relative" as const,
   width: "100%",
-  maxWidth: 680,
+  maxWidth: "42.5rem",
   zIndex: 2,
   display: "flex",
   flexDirection: "column" as const,

@@ -26,7 +26,7 @@ interface AppDialogProps {
   headerContent?: ReactNode;
   contentSx?: SxProps<Theme>;
   contentRef?: React.Ref<HTMLDivElement>;
-  maxWidth?: number;
+  maxWidth?: string | number;
 }
 
 export default function AppDialog({
@@ -72,8 +72,8 @@ export default function AppDialog({
             width: compact
               ? { xs: "calc(100% - 32px)", sm: "auto" }
               : { xs: "100%", sm: "90vw" },
-            minWidth: compact ? { sm: 360 } : undefined,
-            maxWidth: maxWidth ?? (compact ? 440 : CONTENT_COLUMN_WIDTH),
+            minWidth: compact ? { sm: "min(22.5rem, calc(100vw - 48px))" } : undefined,
+            maxWidth: maxWidth ?? (compact ? "27.5rem" : CONTENT_COLUMN_WIDTH),
             maxHeight: compact
               ? "calc(100dvh - 32px)"
               : { xs: "100dvh", sm: "calc(100dvh - 64px)" },

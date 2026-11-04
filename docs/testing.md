@@ -67,6 +67,9 @@ first media row on desktop, title headers fit long metadata and expanded descrip
 and settings navigation stays beside its form. Track lists and album headers should
 share a bounded column; catalogs should gain columns as width increases. Check
 horizontal overflow, action menus and scrolling after resize.
+Also check browser zoom at 125%, 150% and 200%, increased default text size, and
+minimum/maximum card sizes. Verify readable captions, separated virtual rows,
+dialog scrolling and shared card sizing between Home and libraries.
 
 For music/photo libraries, check artist → album → tracks, disc order, playback
 during navigation, queue add/remove/reorder and repeated songs. Include native

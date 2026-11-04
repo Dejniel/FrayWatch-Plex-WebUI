@@ -15,6 +15,7 @@ import type { To } from "react-router-dom";
 import { StretchedLink } from "shared/ui";
 import { useImageLoading, imageFadeSx } from "shared/ui/useImageLoading";
 import type { MediaListSummary } from "../model/mediaLists";
+import { mediaCardTypography } from "entities/media/public";
 
 export default function MediaListCard({
   list,
@@ -49,6 +50,7 @@ export default function MediaListCard({
     <Box
       sx={{
         width: "100%",
+        containerType: "inline-size",
         position: "relative",
         borderRadius: 1,
         "&:hover img": { opacity: 0.8 },
@@ -86,10 +88,10 @@ export default function MediaListCard({
           icon
         )}
       </Box>
-      <Typography noWrap sx={{ mt: 1, fontWeight: 700 }} title={list.title}>
+      <Typography noWrap sx={{ ...mediaCardTypography.title, mt: 1, fontWeight: 700 }} title={list.title}>
         {list.title}
       </Typography>
-      <Typography noWrap variant="body2" sx={{ color: "text.secondary" }}>
+      <Typography noWrap sx={{ ...mediaCardTypography.subtitle, color: "text.secondary" }}>
         {list.count}{" "}
         {list.playlistType === "photo"
           ? list.count === 1

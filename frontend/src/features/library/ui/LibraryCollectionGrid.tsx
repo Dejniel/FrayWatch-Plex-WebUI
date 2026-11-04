@@ -5,7 +5,7 @@ import React from "react";
 import { CollectionViewport } from "shared/ui/CollectionViewport";
 import { ActionableMediaCard } from "features/media-actions/public";
 import { MusicMediaCard } from "features/music/public";
-import { mediaCardAspectRatio, mediaCardWidth } from "entities/media/model";
+import { MEDIA_CARD_FOOTER_HEIGHT, mediaCardAspectRatio, mediaCardWidth } from "entities/media/model";
 import { useLibraryViewport } from "../model/useLibraryViewport";
 import {
   libraryResultQueryKey,
@@ -64,6 +64,7 @@ function LibraryCollectionGrid({
     loading,
     itemWidth: mediaCardWidth(layout, cardSize),
     imageAspectRatio: mediaCardAspectRatio(layout),
+    footerHeight: MEDIA_CARD_FOOTER_HEIGHT,
   });
   return (
     <CollectionViewport

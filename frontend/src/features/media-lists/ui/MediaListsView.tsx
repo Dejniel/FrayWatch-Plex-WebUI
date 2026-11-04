@@ -22,7 +22,7 @@ import {
 import { ActionableMediaCard } from "features/media-actions/public";
 import { photoGalleryGeometry } from "features/photos/model";
 import { PhotoPlaylistContents } from "./PhotoPlaylistContents";
-import { mediaCardAspectRatio, mediaCardWidth } from "entities/media/model";
+import { MEDIA_CARD_FOOTER_HEIGHT, mediaCardAspectRatio, mediaCardWidth } from "entities/media/model";
 import { useMusic } from "features/music/model";
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import {
@@ -126,7 +126,7 @@ export default function MediaListsView({
         : {
             itemWidth: mediaCardWidth(cardView.layout, cardView.size),
             imageAspectRatio: mediaCardAspectRatio(cardView.layout),
-            footerHeight: 94,
+            footerHeight: MEDIA_CARD_FOOTER_HEIGHT + (id && kind === "playlist" ? 24 : 0),
           }),
     observeRef: toolbarRef,
     resetKey: list.key,

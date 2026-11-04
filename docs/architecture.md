@@ -121,6 +121,12 @@ height with content in normal flow; title details use a content-sized header and
 bounded poster/dialog. Artwork is positioned behind content independently of its
 height. Existing viewport observers measure the resulting catalog/list area.
 
+Width limits use `rem` so browser text preferences also scale dialogs and reading
+columns. Media-card sizes share one persisted range across libraries and Home;
+card typography responds to its inline-size container. Virtual catalogs share the
+caption-space budget, with playlist positions reserving their additional line.
+Title headers wrap columns according to available space and text size.
+
 `features/media-actions` owns the shared rating control, rating writes and personal
 menus for music/photos. Menus lazily read canonical metadata to list every original
 file, using the same permission model and download entries as video. Accepted

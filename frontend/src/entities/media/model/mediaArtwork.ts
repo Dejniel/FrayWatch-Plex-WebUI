@@ -1,6 +1,17 @@
 export type MediaArtworkLayout = "landscape" | "poster" | "square";
 
-export const mediaCardWidth = (layout: MediaArtworkLayout, size = 40) =>
+export const DEFAULT_CARD_SIZE = 40;
+export const MAX_CARD_SIZE = 200;
+export const MEDIA_CARD_FOOTER_HEIGHT = 80;
+
+export function normalizeCardSize(value: string | undefined) {
+  const parsed = Number(value);
+  return Number.isFinite(parsed)
+    ? Math.min(MAX_CARD_SIZE, Math.max(0, parsed))
+    : DEFAULT_CARD_SIZE;
+}
+
+export const mediaCardWidth = (layout: MediaArtworkLayout, size = DEFAULT_CARD_SIZE) =>
   Math.round(layout === "landscape" ? 190 + size * 2.2 : 140 + size * 1.6);
 
 export function mediaCardAspectRatio(layout: MediaArtworkLayout) {
