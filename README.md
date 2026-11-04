@@ -8,13 +8,13 @@ FriWatch is a self-hosted alternative web interface for Plex Media Server, with 
 
 I was not looking for another side project. I wanted to open Plex and watch a film.
 
-The official web interface had become unreliable in my setup, while the alternatives I tried were either too bare, partially broken, or mixed the basic Plex experience with unrelated accounts, payments, and services. The original Nevu project was the closest match: it already had the right idea and a strong visual foundation, but login, mobile use, playback details, and several everyday workflows still needed work.
+Plex already takes care of my media. Unfortunately, the official web interface had become unreliable in my setup, while the alternatives I tried were either too bare, partially broken, or mixed the basic Plex experience with unrelated accounts, payments, and services. I needed something that could offer the full Plex web experience while fitting the way I actually use it.
 
-FriWatch grew out of that project because watching a film had turned into debugging a media client. It now focuses on a dependable Plex-native experience, practical administration tools, and a codebase that can keep moving forward.
+FriWatch grew out of that frustration: watching a film had turned into a programming session. It now focuses on a dependable Plex-native experience, practical administration tools, and a codebase that’s easier to maintain and extend.
 
-This project is under active development. Expect rough edges, but also expect fixes to target real use rather than a mock interface.
+The project is now close to covering the full feature set of the official Plex web client in a redesigned interface.
 
-FriWatch originated as a fork of [Ipmake/NevuForPlex](https://github.com/Ipmake/NevuForPlex), maintained under [GPL-3.0](LICENSE) since 2026.
+FriWatch originated as a fork of [Ipmake/NevuForPlex](https://github.com/Ipmake/NevuForPlex) and has been maintained under [GPL-3.0](LICENSE) since 2026.
 
 ## Features
 
