@@ -1,36 +1,13 @@
-# Frontend refactoring roadmap
+# Completed frontend refactoring
 
-Status: active
+Status: complete
 
-The feature-based migration is complete. This roadmap covers targeted
-maintenance that lowers regression risk or makes planned product work easier.
-It is not a second rewrite and should not drive file movement for its own sake.
+This document records completed follow-up work after the feature-based migration.
+It is an archive, not a backlog. Planned product work is in the
+[product roadmap](roadmap.md); current ownership and dependency conventions are in
+[architecture.md](architecture.md).
 
-## Priorities
-
-### Current focus
-
-- Reduce large composition components where it clarifies a workflow or supports
-  planned product work.
-- Migrate endpoint-specific Plex contracts alongside the affected workflows.
-
-### Later
-
-- Improve request-specific Plex types and gradually retire the global `Plex`
-  namespace.
-
-## Working approach
-
-- Use the conventions in [`architecture.md`](architecture.md) as a starting
-  point; adapt ownership when the resulting design is clearer.
-- Prefer transport in `api`, pure decisions and transitions in `model`, and UI
-  coordination in `ui`.
-- Prefer one clear owner over generic abstractions shared by unrelated flows.
-- Add focused tests for pure logic and request contracts; do not refactor solely
-  to make component rendering tests possible.
-- Remove replaced implementations once their callers have migrated.
-
-## Recommended next steps
+## Completed work
 
 ### Browse cache ownership and Plex synchronization — complete
 
@@ -120,9 +97,3 @@ notifications still require recovery, with measured scan and request limits.
 Existing administration queries/mutations and Plex preference fields remain the
 request/advanced-setting owners. Untouched fields follow background reads;
 failed saves retain edits, and session changes cancel obsolete requests.
-
-## Verification
-
-Choose checks for the affected behavior using [testing.md](testing.md). Record
-the results and any unverified scenarios; access to a particular server or
-container is not a prerequisite for every refactor.

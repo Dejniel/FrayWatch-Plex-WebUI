@@ -1,6 +1,6 @@
 # FriWatch
 
-FriWatch is a modern, self-hosted alternative web interface for Plex Media Server. It gives movie and TV libraries a faster, cleaner browser experience with Plex Home profiles, adaptive trailers, configurable library views, rich title details, multi-version playback, ratings and reviews, and practical server administration. It runs in Docker and keeps Plex as the media server and source of truth.
+FriWatch is a self-hosted alternative web interface for Plex Media Server, with movie, TV, music and photo libraries in one responsive browser interface. It includes Plex Home profiles, configurable library browsing, video and music playback, photo galleries, ratings and reviews, and server administration. It runs in Docker and keeps Plex as the media server and source of truth.
 
 ![FriWatch home screen with a local Plex demo library](assets/preview.jpg)
 
@@ -18,47 +18,47 @@ FriWatch originated as a fork of [Ipmake/NevuForPlex](https://github.com/Ipmake/
 
 ## Features
 
-- **A cinematic, responsive Plex interface** for desktop and mobile browsers.
+### Libraries and personal media
+
 - **Plex-native authentication** with Plex Home profile selection, protected-profile PIN entry, and optional profile remembering.
-- **Plex Home management** with managed-user names and age restrictions, PINs, household invitations, guest access, member removal, and library permissions, governed by the active profile's Plex permissions.
-- **Movie and TV discovery** with search, Continue Watching, watchlists, recommendations, recently added media, new releases, and related-title rows.
-- **Configurable library browsing** with watched-state and type filters, multiple sort orders, adjustable card sizes, and landscape or poster layouts saved per Plex Home profile. The type selector includes TV seasons and folder browsing for movie, TV and music libraries; tracks and folders use detailed lists.
+- **Movies and TV** with global search, Continue Watching, recommendations, recently added media and new releases. Title pages include trailers, cast, related titles, extras, and technical media information.
+- **Music** with artist and album pages, track lists, and a persistent player that keeps playing during navigation. Edit the Plex queue, shuffle, repeat, or start a playlist from a selected song; reload restores the queue entry and position paused.
+- **Photos** with native album browsing, a chronological `All photos` view, filters and sorting. The gallery includes fullscreen viewing, zoom, slideshows and photo information; `My albums` stores personal photo selections as Plex playlists.
+- **Configurable library browsing** with standard and advanced filters, watched-state and media-type filters, sorting, adjustable card sizes, and landscape or poster layouts saved per Plex Home profile. TV seasons and movie, TV and music folders have dedicated views; tracks and folders use detailed lists.
 - **Plex Watchlist** inside libraries with an optional library filter, search, sorting, and local availability labels; the same view opens the full list from Home.
-- **Collections, video/music playlists and personal photo albums** alongside library views, with search, sorting, paged contents, and playlist playback in Plex order. Card and title menus add media to existing or new lists. Personal lists support name/description editing, moving and removing individual entries, and deletion; collection editing follows library management permissions. Library menus provide direct links to lists and Watchlist.
-- **Personalized navigation** with library pinning, ordering, and optional icons only for each profile. The top bar fits available space and groups remaining libraries in a compact selector with full names.
-- **Richer title pages** with adaptive trailers, ratings, critic and community reviews, cast, related titles, extras, media details, and technical information.
-- **Ratings and reviews** on a consistent 0–10 scale with provider labels, individual friend ratings, community reviews with spoiler protection, and writing or editing your own Plex review.
-- **Integrated playback** with quality selection, automatic audio and subtitle matching, seek previews, intro and credits skipping, resume support, and optional automatic next-episode playback.
+- **Collections, playlists and personal photo albums** with search, sorting and paged contents. Media menus add items to existing or new lists. Own manual video/music playlists and photo albums support name/description editing, reordering, entry removal and deletion; playlists play in Plex order. Adding to collections follows library management permissions.
+- **Personalized navigation** on desktop and mobile, with library pinning, ordering, and optional icons only for each profile. The top bar groups remaining libraries in a compact selector with full names.
+- **Ratings and reviews** with personal ratings stored on Plex for video, music and photos. Movie and TV pages show a consistent 0–10 scale with provider labels, critic reviews, individual friend ratings, community reviews with spoiler protection, and writing or editing your own Plex review.
+- **Watched-state actions** for movies, shows, seasons and episodes, including selecting multiple episodes to mark played or unplayed together.
+
+### Playback
+
+- **Integrated video playback** with quality selection, audio and subtitle selection and automatic matching, seek previews, intro and credits skipping, resume support, keyboard controls, and optional automatic next-episode playback.
 - **Multiple media versions** with combined audio and subtitle lists; choosing a track automatically switches to the file that contains it.
 - **Subtitle search, download and file upload** with editable search criteria, language and Forced/SDH preferences, Plex provider results, and automatic selection during playback. Upload SRT, VTT, ASS, SSA or SMI files to the current media version; Plex stores them for future playback.
 - **Firefox-compatible trailer playback** with Plex Discover fallback when a local trailer is unavailable.
-- **Playback-state controls** for watchlists and marking movies, shows, seasons, or episodes as played or unplayed.
+- **Original-file downloads** for video, tracks and photos when the active Plex account is allowed, with a choice of available files and versions.
+- **Watch Together through FriWatch Sync**, which can be disabled for a simpler local installation.
+
+### Administration and hosting
+
+- **Plex Home management** with managed-user names and age restrictions, PINs, household invitations, guest access, member removal, and library permissions, governed by the active profile's Plex permissions.
 - **Metadata and artwork administration** through one editor for video, music and photos: type-specific fields, existing-tag suggestions, field locks, supported movie/show editions, and poster/cover/background/logo/square-art/banner editing. Includes uploads, URL imports, music artist/album reassignment, native merge handling, and per-item Plex preferences. Saves preserve unedited values and retain drafts after partial failures.
 - **Plex metadata matching** for movies, shows, artists and albums: title or external-ID searches, server-provided agents, and manager-only Match, Fix Match and Unmatch actions. Supports IMDb/TMDB/TVDB IDs and links, plus MusicBrainz artist/release IDs.
 - **Plex library administration** for server managers: create, edit, and delete libraries; browse server folders; scan files; refresh metadata; analyze media; and empty library trash.
 - **Plex server preferences** generated from the connected server, with grouped sections, search, advanced options, individual defaults, and saving only edited values. Library preferences use the same fields and validation.
 - **Library sharing management** for granting, updating, and removing another Plex user's access without leaving FriWatch.
-- **Original-file downloads** for video, tracks and photos when the active Plex account is allowed, with a choice of available files and versions.
-- **Watch Together through FriWatch Sync**, which can be disabled for a simpler local installation.
 - **Optional native HTTPS** with mounted PEM files or a persistent self-signed certificate.
 - **Self-hosted Docker deployment** with reproducible multi-platform images built from lockfiles and published to GHCR.
 
-FriWatch supports movie and TV workflows, music artist/album pages and track lists,
-and photo libraries. Music keeps playing during navigation, with a persistent player
-and an editable Plex queue with shuffle and repeat. Reload restores the selected
-queue entry and position paused. Artist, album and track menus create or extend music
-playlists; saved playlists play from a selected song or shuffled. Photo libraries
-offer album browsing and a chronological `All photos` view, with shared filters
-and sorting. Their gallery supports fullscreen viewing, zoom, slideshows and
-photo information. `My albums` stores personal photo selections as native Plex
-playlists, with shared name/description editing, reordering, removal and deletion.
-Create an album or add a photo to an existing one from its menu. Music and photos
-also support personal ratings stored on Plex
-for the active profile. It is not an official Plex product and is
-not affiliated with Plex, Inc.
+Global search currently covers movies and TV. Library-wide multiple selection,
+smart playlist/collection rule editing, and browsing multiple Plex servers together
+remain planned; see the [product roadmap](docs/roadmap.md).
+
+FriWatch is not an official Plex product and is not affiliated with Plex, Inc.
 
 Supported browsers: Chrome 117+, Edge 121+, Firefox 121+, and Safari 17+
-(including iOS), following [Material UI's browser requirements](https://mui.com/material-ui/migration/upgrade-to-v9/).
+(including iOS), following [Material UI's browser requirements](https://mui.com/material-ui/getting-started/supported-platforms/#browser).
 
 ## Installation
 

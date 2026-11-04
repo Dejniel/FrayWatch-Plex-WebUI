@@ -380,6 +380,6 @@ entities, form the active frontend structure.
 - Playback intentionally consumes the public watch-together controller. It
   does not depend on socket transport, room state internals, or sync UI.
 
-Future structural work is tracked separately in
+Completed follow-up refactors are recorded in
 [`refactoring-roadmap.md`](refactoring-roadmap.md). Current dependency and
 ownership conventions remain documented in [`architecture.md`](architecture.md).

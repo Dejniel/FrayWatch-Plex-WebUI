@@ -2,9 +2,8 @@
 
 Status: active
 
-This document lists planned product work. Completed functionality belongs in
-the README and release notes; implementation-only cleanup belongs in the
-[refactoring roadmap](refactoring-roadmap.md).
+This document lists planned product work. Implemented functionality is described
+in the [README](../README.md) and release notes.
 
 ## Now
 
