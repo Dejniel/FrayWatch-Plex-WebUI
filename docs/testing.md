@@ -15,7 +15,7 @@ account capability is unavailable.
 CI runs `npm audit --audit-level=high` in both `frontend` and `backend`, including
 development dependencies, before tests and builds. High or critical advisories,
 or a failed audit request, stop the workflow and block Docker publication for
-releases, manual runs, and development previews.
+releases and manual runs.
 
 Backend tests use temporary SQLite databases to check initialization, existing
 settings, profile isolation, parameterized writes, and persistence after reopening.
