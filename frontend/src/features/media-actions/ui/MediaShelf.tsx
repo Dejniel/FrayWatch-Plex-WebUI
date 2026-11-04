@@ -12,6 +12,7 @@ import {
   type MediaItemData,
 } from "entities/media/model";
 import ActionableMediaCard from "./ActionableMediaCard";
+import { PAGE_GUTTER } from "shared/ui/layout";
 
 const GAP = 10;
 
@@ -36,7 +37,7 @@ export function MediaShelf({
   plexTvSource,
   layout = "landscape",
   cardSize,
-  gutter = "2.5vw",
+  gutter = PAGE_GUTTER,
   headingVariant = "h4",
 }: MediaShelfProps) {
   const [viewport, setViewport] = useState<HTMLDivElement | null>(null);
@@ -58,12 +59,9 @@ export function MediaShelf({
     return () => observer.disconnect();
   }, [viewport]);
 
-  const columns = Math.min(
-    10,
-    Math.max(
-      1,
-      Math.floor((width + GAP) / (mediaCardWidth(layout, cardSize) + GAP)),
-    ),
+  const columns = Math.max(
+    1,
+    Math.floor((width + GAP) / (mediaCardWidth(layout, cardSize) + GAP)),
   );
   const pending = loading || width === 0;
   const count = pending ? columns : data.length;

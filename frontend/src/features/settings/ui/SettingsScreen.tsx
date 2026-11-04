@@ -8,6 +8,7 @@ import SettingsSharing from "./SettingsSharing";
 import SettingsLibrariesAdmin from "./SettingsLibrariesAdmin";
 import SettingsServer from "./SettingsServer";
 import { useCanManageServer } from "features/session/public";
+import { CONTENT_COLUMN_WIDTH, PAGE_GUTTER } from "shared/ui/layout";
 
 function SettingsScreen() {
   const canManageServer = useCanManageServer();
@@ -15,22 +16,21 @@ function SettingsScreen() {
   return (
     <Box
       sx={{
-        display: "flex",
-        flexDirection: { xs: "column", md: "row" },
-        alignItems: "flex-start",
-        justifyContent: "flex-start",
-        minHeight: "100vh",
-        width: "100vw",
-        overflow: "auto",
-        pt: "64px",
-        px: "20px",
-        pb: "20px",
+        width: "100%",
+        maxWidth: CONTENT_COLUMN_WIDTH,
+        mx: "auto",
+        display: "grid",
+        gridTemplateColumns: { xs: "minmax(0, 1fr)", md: "240px minmax(0, 1fr)" },
+        alignItems: "start",
+        gap: { xs: 2, md: 3 },
+        pt: "88px",
+        px: PAGE_GUTTER,
+        pb: 3,
       }}
     >
       <Box
         sx={{
-          width: { xs: "100%", md: "260px" },
-          flexShrink: 0,
+          minWidth: 0,
           display: "flex",
           flexDirection: "column",
           backgroundColor: "#181818",
@@ -56,18 +56,14 @@ function SettingsScreen() {
       <Box
         sx={{
           width: "100%",
-          maxWidth: "900px",
-          minHeight: { xs: "auto", md: "calc(100vh - 84px)" },
+          minWidth: 0,
           display: "flex",
           flexDirection: "column",
           alignItems: "flex-start",
           justifyContent: "flex-start",
           backgroundColor: "#18181855",
-          padding: "20px",
+          p: { xs: 2, sm: 3 },
           borderRadius: "10px",
-          ml: { xs: 0, md: "auto" },
-          mr: "auto",
-          mt: { xs: 2, md: 0 },
         }}
       >
         <Routes>

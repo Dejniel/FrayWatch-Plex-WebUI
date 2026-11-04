@@ -82,6 +82,7 @@ export default function LibraryCollectionDialog({
       open={open}
       onClose={onClose}
       title={title}
+      maxWidth={1800}
       contentRef={contentRef}
       contentSx={{ p: 0 }}
       headerContent={baseQuery ? (

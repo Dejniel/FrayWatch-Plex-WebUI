@@ -1,15 +1,20 @@
-import { Alert, Box, CircularProgress, Grid, Typography } from "@mui/material";
+import { Alert, Box, CircularProgress, Typography } from "@mui/material";
 import React, { useMemo } from "react";
 import { Link, useLocation, useParams } from "react-router-dom";
 import { ActionableMediaCard } from "features/media-actions/public";
 import { libraryBrowseTo } from "shared/lib/navigation";
 import { partitionSearchResults } from "../model/searchResults";
 import { usePlexSearch } from "../model/usePlexSearch";
+import { useLibraryCardView } from "features/library/public";
+import { mediaCardWidth } from "entities/media/model";
+import { PAGE_GUTTER } from "shared/ui/layout";
 
 export default function SearchScreen() {
   const { query } = useParams();
   const location = useLocation();
   const search = usePlexSearch(query ?? "");
+  const cardView = useLibraryCardView();
+  const cardWidth = mediaCardWidth(cardView.layout, cardView.size);
   const { media, directories } = useMemo(
     () => partitionSearchResults(search.results),
     [search.results],
@@ -25,14 +30,15 @@ export default function SearchScreen() {
         height: "100%",
         width: "100%",
         mt: "64px",
-        px: 6,
-        py: 2,
-
+        px: PAGE_GUTTER,
         pt: 4,
         pb: 6,
       }}
     >
-      <Typography variant="h3" sx={{ mt: 2 }}>
+      <Typography
+        variant="h3"
+        sx={{ mt: 2, fontSize: { xs: "1.8rem", sm: "3rem" }, overflowWrap: "anywhere" }}
+      >
         {query ? (
           <>
             Results for <strong>{query}</strong>
@@ -45,39 +51,46 @@ export default function SearchScreen() {
       {search.loading && <CircularProgress sx={{ mt: 4 }} />}
       {search.error && <Alert severity="error" sx={{ mt: 3 }}>{search.error}</Alert>}
 
-      <Grid container spacing={2} sx={{ mt: 2, width: "100%" }}>
+      <Box
+        sx={{
+          mt: 2,
+          width: "100%",
+          display: "grid",
+          gridTemplateColumns: `repeat(auto-fill, minmax(min(100%, ${cardWidth}px), 1fr))`,
+          gap: 2,
+        }}
+      >
         {directories.length > 0 && (
           <>
-            <Grid key={"dir"} size={{ xs: 12 }}>
-              <Typography variant="h4">Categories</Typography>
-            </Grid>
+            <Typography variant="h4" sx={{ gridColumn: "1 / -1" }}>
+              Categories
+            </Typography>
 
             {directories.map((item) => (
-              <Grid key={item.key} size={{ xl: 2, lg: 3, md: 6, sm: 12, xs: 12 }}>
-                <DirectoryItem
-                  item={item}
-                  to={libraryBrowseTo(
-                    location,
-                    `/library/sections/${item.librarySectionID}/genre/${item.id}`
-                  )}
-                />
-              </Grid>
+              <DirectoryItem
+                key={item.key}
+                item={item}
+                to={libraryBrowseTo(
+                  location,
+                  `/library/sections/${item.librarySectionID}/genre/${item.id}`,
+                )}
+              />
             ))}
 
-            <Grid key={"dir"} size={{ xs: 12 }}></Grid>
+            <Box sx={{ gridColumn: "1 / -1" }} />
           </>
         )}
 
         {!search.loading &&
           media.map((item) => (
-            <Grid
+            <ActionableMediaCard
               key={item.ratingKey}
-              size={{ xs: 12, sm: 6, md: 4, lg: 3, xl: 2 }}
-            >
-              <ActionableMediaCard item={item} />
-            </Grid>
+              item={item}
+              layout={cardView.layout}
+              imageSizes={`${cardWidth}px`}
+            />
           ))}
-      </Grid>
+      </Box>
     </Box>
   );
 }

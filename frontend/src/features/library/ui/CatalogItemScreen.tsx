@@ -28,6 +28,7 @@ import { WindowLibraryCollectionGrid } from "./LibraryCollectionGrid";
 import { useLibraryCardView } from "./LibraryCardViewControls";
 import { musicChildrenQuery } from "../model/libraryQuery";
 import { QueryErrorAlert } from "shared/ui/QueryErrorAlert";
+import { CONTENT_COLUMN_WIDTH, PAGE_GUTTER } from "shared/ui/layout";
 
 export default function CatalogItemScreen() {
   const { libraryID = "", itemID = "" } = useParams();
@@ -58,7 +59,16 @@ export default function CatalogItemScreen() {
       librarySectionID: Number(libraryID),
     });
   return (
-    <Box sx={{ mt: "80px", px: { xs: 1.5, md: 6 }, pb: 3, width: "100%" }}>
+    <Box
+      sx={{
+        mt: "80px",
+        px: PAGE_GUTTER,
+        pb: 3,
+        width: "100%",
+        maxWidth: item?.type === "album" ? CONTENT_COLUMN_WIDTH : undefined,
+        mx: "auto",
+      }}
+    >
       <Stack direction="row" spacing={2} sx={{ alignItems: "center", mb: 3 }}>
         <Button
           onClick={() =>

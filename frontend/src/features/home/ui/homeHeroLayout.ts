@@ -1,14 +1,26 @@
-export const HOME_CONTENT_GUTTER = "2.5vw";
+import { PAGE_GUTTER } from "shared/ui/layout";
+
+export const homeHeroSx = {
+  width: "100%",
+  minHeight: { xs: "min(560px, 70svh)", sm: "clamp(360px, 56svh, 680px)" },
+  position: "relative" as const,
+  overflow: "hidden",
+  isolation: "isolate",
+  backgroundColor: "background.default",
+  display: "flex",
+  flexDirection: "column" as const,
+  justifyContent: "center",
+  px: PAGE_GUTTER,
+  pt: "88px",
+  pb: 10,
+};
 
 export const homeHeroContentSx = {
-  position: "absolute" as const,
-  top: "64px",
-  bottom: "20vh",
-  left: 0,
-  right: 0,
-  px: HOME_CONTENT_GUTTER,
+  position: "relative" as const,
+  width: "100%",
+  maxWidth: 680,
+  zIndex: 2,
   display: "flex",
   flexDirection: "column" as const,
   alignItems: "flex-start",
-  justifyContent: "center",
 };

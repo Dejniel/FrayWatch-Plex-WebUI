@@ -8,7 +8,7 @@ import {
   Typography,
 } from "@mui/material";
 import { Link, useLocation, useSearchParams } from "react-router-dom";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import {
   getResponsiveTranscodeImageProps,
   DETAIL_POSTER_IMAGE_WIDTHS,
@@ -49,7 +49,8 @@ import {
   type TitleDetailsTab,
 } from "../model/titleDetailsTabs";
 
-const DESKTOP_HERO_HEIGHT = "clamp(560px, 93.333vh, 960px)";
+const DETAILS_WIDTH = 1440;
+const DETAILS_GUTTER = { xs: 2, sm: 3, md: 4 };
 function TitleDetailsScreen() {
   const [searchParams, setSearchParams] = useSearchParams();
   const location = useLocation();
@@ -57,8 +58,6 @@ function TitleDetailsScreen() {
   const allowDownloads = useServerSession(
     (state) => state.server?.allowSync === true,
   );
-  const posterRef = React.useRef<HTMLDivElement>(null);
-
   const [reviewTarget, setReviewTarget] = useState<string | null>(null);
   const [notice, setNotice] = useState<string | null>(null);
   const sessionRevision = useAuthSession((state) => state.revision);
@@ -141,7 +140,7 @@ function TitleDetailsScreen() {
     ? getResponsiveTranscodeImageProps(data.art, {
         widths: HERO_IMAGE_WIDTHS,
         aspectRatio: 16 / 9,
-        sizes: "(max-width: 600px) 100vw, 90vw",
+        sizes: "(max-width: 600px) 100vw, (max-width: 1600px) 90vw, 1440px",
         fallbackWidth: 1280,
       })
     : null;
@@ -150,7 +149,7 @@ function TitleDetailsScreen() {
     ? getResponsiveTranscodeImageProps(posterPath, {
         widths: DETAIL_POSTER_IMAGE_WIDTHS,
         aspectRatio: 2 / 3,
-        sizes: "(max-width: 600px) 320px, 27vw",
+        sizes: "(max-width: 600px) min(64vw, 240px), clamp(180px, 22vw, 280px)",
         fallbackWidth: 480,
       })
     : null;
@@ -161,7 +160,12 @@ function TitleDetailsScreen() {
 
   if (loading)
     return (
-      <AppDialog open onClose={closeDetails} contentSx={{ p: 0 }}>
+      <AppDialog
+        open
+        onClose={closeDetails}
+        maxWidth={DETAILS_WIDTH}
+        contentSx={{ p: 0 }}
+      >
         <Box
           sx={{
             minHeight: "50vh",
@@ -191,6 +195,7 @@ function TitleDetailsScreen() {
     <AppDialog
       open={Boolean(mid)}
       onClose={closeDetails}
+      maxWidth={DETAILS_WIDTH}
       contentSx={{ p: 0, backgroundColor: "background.default" }}
     >
       <Box
@@ -206,23 +211,21 @@ function TitleDetailsScreen() {
         }}
       >
         <Box
+          component="header"
           sx={{
             width: "100%",
-            maxWidth: "100%",
-            height: { xs: "50vh", sm: DESKTOP_HERO_HEIGHT },
-            backgroundColor: "#000000AA",
-
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "flex-start",
-            justifyContent: "flex-start",
-            padding: { xs: 0, sm: "1%" },
-            borderTopLeftRadius: { xs: 0, sm: "10px" },
-            borderTopRightRadius: { xs: 0, sm: "10px" },
+            display: "grid",
+            gridTemplateColumns: {
+              xs: "minmax(0, 1fr)",
+              sm: "clamp(180px, 22vw, 280px) minmax(0, 1fr)",
+            },
+            alignItems: "start",
+            gap: { xs: 3, md: 4 },
+            px: DETAILS_GUTTER,
+            pt: 5,
+            pb: 3,
             position: "relative",
-            zIndex: 0,
-            overflow: "hidden",
-            userSelect: "none",
+            isolation: "isolate",
           }}
         >
           {heroArtwork && (
@@ -238,53 +241,32 @@ function TitleDetailsScreen() {
                 width: "100%",
                 height: "100%",
                 objectFit: "cover",
-                objectPosition: "center",
+                objectPosition: "center top",
                 filter: "brightness(0.32)",
+                zIndex: -2,
               }}
             />
           )}
-        </Box>
-
-        <Box
-          sx={{
-            mt: { xs: "-25vh", sm: "-15vh" },
-            height: { xs: "25vh", sm: "30vh" },
-            width: "100%",
-            background: (theme) =>
-              `linear-gradient(180deg, ${alpha(
-                theme.palette.background.default,
-                0,
-              )}, ${theme.palette.background.default}, ${
-                theme.palette.background.default
-              })`,
-            zIndex: 1,
-            pointerEvents: "none",
-            position: "relative",
-          }}
-        />
-
-        <Box
-          sx={{
-            display: "flex",
-            flexDirection: { xs: "column", sm: "row" },
-            alignItems: { xs: "center", sm: "flex-start" },
-            justifyContent: "center",
-            width: "100%",
-            padding: "0 3%",
-            mt: {
-              xs: "-38vh",
-              sm: `calc(3% - 15vh - ${DESKTOP_HERO_HEIGHT})`,
-            },
-            gap: "3%",
-            zIndex: 2,
-          }}
-        >
           <Box
-            ref={posterRef}
+            aria-hidden="true"
             sx={{
-              width: { xs: "100%", sm: "30%" },
-              maxWidth: { xs: "320px", sm: "none" },
-              mb: { xs: 2, sm: 0 },
+              position: "absolute",
+              inset: 0,
+              background: (theme) =>
+                `linear-gradient(180deg, ${alpha(
+                  theme.palette.background.default,
+                  0,
+                )}, ${theme.palette.background.default}, ${
+                  theme.palette.background.default
+                })`,
+              zIndex: -1,
+              pointerEvents: "none",
+            }}
+          />
+          <Box
+            sx={{
+              width: { xs: "min(64vw, 240px)", sm: "100%" },
+              justifySelf: { xs: "center", sm: "stretch" },
               borderRadius: "10px",
               overflow: "hidden",
               boxShadow: (theme) =>
@@ -313,13 +295,12 @@ function TitleDetailsScreen() {
 
           <Box
             sx={{
-              width: { xs: "100%", sm: "70%" },
+              width: "100%",
+              minWidth: 0,
               display: "flex",
               flexDirection: "column",
               alignItems: { xs: "center", sm: "flex-start" },
               justifyContent: "flex-start",
-              height: { xs: "100%", sm: "auto" },
-              marginLeft: { xs: 0, sm: "1%" },
             }}
           >
             <Box
@@ -329,7 +310,6 @@ function TitleDetailsScreen() {
                 alignItems: { xs: "center", sm: "flex-start" },
                 justifyContent: "flex-start",
                 width: "100%",
-                height: { xs: "65%", sm: "auto" },
               }}
             >
               <Box
@@ -338,7 +318,6 @@ function TitleDetailsScreen() {
                   flexDirection: "row",
                   alignItems: "center",
                   justifyContent: { xs: "center", sm: "flex-start" },
-                  mb: { xs: 0, sm: "-10px" },
                 }}
               >
                 <Typography
@@ -356,7 +335,7 @@ function TitleDetailsScreen() {
 
               <Typography
                 sx={{
-                  fontSize: { xs: "2rem", sm: "3rem" },
+                  fontSize: { xs: "2rem", sm: "2.5rem" },
                   fontWeight: "bold",
                   mt: 0,
                   mb: { xs: 1, sm: 0 },
@@ -601,11 +580,10 @@ function TitleDetailsScreen() {
                 </Box>
               </Collapse>
 
-              <Box sx={{ mt: 1.5, width: "100%" }}>
+              <Box sx={{ mt: 1.5, width: "100%", maxWidth: "75ch" }}>
                 <ExpandableDescription
                   text={data?.summary}
                   lines={6}
-                  boundaryRef={posterRef}
                 />
               </Box>
             </Box>
@@ -619,9 +597,8 @@ function TitleDetailsScreen() {
             alignItems: "flex-start",
             justifyContent: "flex-start",
             width: "100%",
-            px: "3%",
-            mt: "3vh",
-            zIndex: 2,
+            px: DETAILS_GUTTER,
+            mt: 1,
           }}
         >
           <TitleDetailsNavigation

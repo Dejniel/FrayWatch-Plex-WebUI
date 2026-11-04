@@ -12,6 +12,7 @@ import type { LibraryCardLayout } from "./LibraryCardViewControls";
 import { useLibraryPages, useLibraryWindow } from "../model/useLibraryPages";
 import type { LibraryQuery } from "../model/libraryQuery";
 import { libraryBrowseTo } from "shared/lib/navigation";
+import { PAGE_GUTTER } from "shared/ui/layout";
 
 const SHELF_LIMIT = 40;
 type ShelfPresentation = Omit<MediaShelfProps, "data" | "loading">;
@@ -142,7 +143,7 @@ function ShelfError({
   onRetry?: () => unknown;
 }) {
   return (
-    <Box sx={{ width: "100%", px: "2.5vw" }}>
+    <Box sx={{ width: "100%", px: PAGE_GUTTER }}>
       <Alert
         severity="error"
         action={

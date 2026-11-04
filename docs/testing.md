@@ -62,6 +62,12 @@ related titles must remain reachable by buttons, keyboard and swipe. Resizing or
 metadata refresh keeps the current item visible; changing titles starts at the
 first page. Already-supplied shelf data must not trigger another metadata read.
 
+Compare phone, tablet, desktop and ultrawide layouts. Check that Home exposes its
+first media row on desktop, title headers fit long metadata and expanded descriptions,
+and settings navigation stays beside its form. Track lists and album headers should
+share a bounded column; catalogs should gain columns as width increases. Check
+horizontal overflow, action menus and scrolling after resize.
+
 For music/photo libraries, check artist → album → tracks, disc order, playback
 during navigation, queue add/remove/reorder and repeated songs. Include native
 audio and a format requiring Plex conversion. Verify HLS and DASH audio decisions,

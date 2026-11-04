@@ -108,10 +108,18 @@ folder ID keys the existing page cache. Plex's folder endpoint supplies native o
 and ignores filters/sorting, so those controls are hidden. Video and track rows reuse
 their existing action owners.
 
-Cards, detailed rows and photo previews share source-scoped image loading and a
+Cards, detailed rows, photo previews and Home artwork share source-scoped image loading and a
 500 ms fade that respects reduced motion. Late events cannot change a newer image;
 cached images are recognized when mounted. Photo neighbors follow contiguous loaded
 catalog positions and validate the selected identity before navigating.
+
+Page geometry lives in `shared/ui/layout`: catalogs use fluid width and shared
+gutters, while track/folder lists, album pages and settings use a bounded content
+column, also used by standard form dialogs. Catalog dialogs explicitly allow a
+wider viewport. Settings navigation and forms share one grid. Home uses a bounded hero
+height with content in normal flow; title details use a content-sized header and
+bounded poster/dialog. Artwork is positioned behind content independently of its
+height. Existing viewport observers measure the resulting catalog/list area.
 
 `features/media-actions` owns the shared rating control, rating writes and personal
 menus for music/photos. Menus lazily read canonical metadata to list every original

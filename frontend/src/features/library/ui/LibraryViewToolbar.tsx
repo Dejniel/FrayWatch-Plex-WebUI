@@ -1,5 +1,6 @@
 import { Box } from "@mui/material";
 import React from "react";
+import { PAGE_GUTTER } from "shared/ui/layout";
 import {
   LibraryCardViewControls,
   type LibraryCardView,
@@ -30,7 +31,7 @@ export default function LibraryViewToolbar({
       sx={{
         zIndex: 10,
         width: "100%",
-        px: { xs: 1, md: 6 },
+        px: PAGE_GUTTER,
         pt: { xs: 1, md: 0.5 },
         pb: 1,
         position: "relative",

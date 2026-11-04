@@ -44,6 +44,7 @@ import { useMediaList, useMediaListWindow } from "../model/useMediaList";
 import MediaListCard from "./MediaListCard";
 import PlaylistEntryCard from "./PlaylistEntryCard";
 import PlaylistEditor, { type PlaylistAction } from "./PlaylistEditor";
+import { PAGE_GUTTER } from "shared/ui/layout";
 
 export default function MediaListsView({
   kind,
@@ -196,6 +197,7 @@ export default function MediaListsView({
       cardView={cardView}
       showOrientation={!audio && !photos}
       showCardControls={!trackRows}
+      presentation={trackRows ? "list" : "grid"}
       leading={
         <Box
           sx={{
@@ -365,7 +367,7 @@ export default function MediaListsView({
             <Typography
               sx={{
                 color: "text.secondary",
-                px: { xs: 1, md: 6 },
+                px: PAGE_GUTTER,
                 py: 1,
                 whiteSpace: "pre-line",
                 overflowWrap: "anywhere",

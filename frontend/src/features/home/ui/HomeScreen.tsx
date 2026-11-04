@@ -6,7 +6,8 @@ import { useWatchlist } from "features/watchlist/model";
 import { useHomeDiscovery } from "../model/useHomeDiscovery";
 import HomeHero from "./HomeHero";
 import HomeEmptyState from "./HomeEmptyState";
-import { homeHeroContentSx } from "./homeHeroLayout";
+import { homeHeroContentSx, homeHeroSx } from "./homeHeroLayout";
+import { PAGE_GUTTER } from "shared/ui/layout";
 
 export default function HomeScreen() {
   const watchlist = useWatchlist().data ?? [];
@@ -34,7 +35,7 @@ export default function HomeScreen() {
 
   if (catalogStatus === "error")
     return (
-      <Box sx={{ mt: "96px", px: { xs: 3, md: "5vw" } }}>
+      <Box sx={{ mt: "96px", px: PAGE_GUTTER }}>
         <Alert severity="error" action={<Button color="inherit" onClick={refresh}>Retry</Button>}>
           Unable to load your Plex libraries. Please try again.
         </Alert>
@@ -49,7 +50,6 @@ export default function HomeScreen() {
         flexDirection: "column",
         alignItems: "flex-start",
         justifyContent: "flex-start",
-        pt: "-64px",
       }}
     >
       {heroLoading ? (
@@ -65,10 +65,9 @@ export default function HomeScreen() {
           flexDirection: "column",
           alignItems: "flex-start",
           justifyContent: "flex-start",
-          gap: 8,
+          gap: { xs: 4, md: 6 },
           pb: 8,
-          mt: hero || heroLoading ? "-20vh" : "80px",
-          zIndex: 1,
+          mt: hero || heroLoading ? 2 : "80px",
         }}
       >
         <MovieItemSlider
@@ -104,14 +103,7 @@ function HomeHeroSkeleton() {
   return (
     <Box
       aria-hidden="true"
-      sx={{
-        width: "100%",
-        height: "100vh",
-        position: "relative",
-        overflow: "hidden",
-        backgroundColor: "background.default",
-        boxShadow: "inset 0 0 0 1px rgba(255,255,255,0.04)",
-      }}
+      sx={homeHeroSx}
     >
       <Skeleton
         variant="rectangular"
@@ -119,7 +111,7 @@ function HomeHeroSkeleton() {
         sx={{ position: "absolute", inset: 0, width: "100%", height: "100%" }}
       />
       <Box sx={homeHeroContentSx}>
-        <Box sx={{ width: { xs: "85vw", sm: "60vw", md: "35vw" } }}>
+        <Box sx={{ width: "100%" }}>
           <Skeleton width="22%" height={28} />
           <Skeleton width="72%" height={58} />
           <Skeleton width="100%" height={22} />

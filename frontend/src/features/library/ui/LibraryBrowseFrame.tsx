@@ -2,6 +2,7 @@ import { Box } from "@mui/material";
 import React from "react";
 import type { LibraryCardView } from "./LibraryCardViewControls";
 import LibraryViewToolbar from "./LibraryViewToolbar";
+import { CONTENT_COLUMN_WIDTH, PAGE_GUTTER } from "shared/ui/layout";
 
 export default function LibraryBrowseFrame({
   toolbarRef,
@@ -12,6 +13,7 @@ export default function LibraryBrowseFrame({
   description,
   showOrientation = true,
   showCardControls = true,
+  presentation = "grid",
   children,
 }: {
   toolbarRef: React.RefObject<HTMLDivElement | null>;
@@ -22,10 +24,19 @@ export default function LibraryBrowseFrame({
   description?: React.ReactNode;
   showOrientation?: boolean;
   showCardControls?: boolean;
+  presentation?: "grid" | "list";
   children: React.ReactNode;
 }) {
   return (
-    <Box sx={{ mt: "64px", width: "100%", pb: 8 }}>
+    <Box
+      sx={{
+        mt: "64px",
+        width: "100%",
+        maxWidth: presentation === "list" ? CONTENT_COLUMN_WIDTH : undefined,
+        mx: "auto",
+        pb: 8,
+      }}
+    >
       <Box ref={toolbarRef} sx={{ width: "100%" }}>
         <LibraryViewToolbar
           cardView={cardView}
@@ -37,7 +48,7 @@ export default function LibraryBrowseFrame({
         />
         <Box
           sx={{
-            px: { xs: 1, md: 6 },
+            px: PAGE_GUTTER,
             py: 1,
             display: "flex",
             alignItems: "center",
@@ -49,7 +60,7 @@ export default function LibraryBrowseFrame({
         </Box>
         {description}
       </Box>
-      <Box sx={{ px: { xs: 1, md: 6 }, mt: 2 }}>{children}</Box>
+      <Box sx={{ px: PAGE_GUTTER, mt: 2 }}>{children}</Box>
     </Box>
   );
 }

@@ -11,6 +11,7 @@ import {
 import type { SxProps, Theme } from "@mui/material";
 import React, { useId } from "react";
 import type { ReactNode } from "react";
+import { CONTENT_COLUMN_WIDTH } from "./layout";
 
 type AppDialogSize = "compact" | "standard";
 
@@ -72,7 +73,7 @@ export default function AppDialog({
               ? { xs: "calc(100% - 32px)", sm: "auto" }
               : { xs: "100%", sm: "90vw" },
             minWidth: compact ? { sm: 360 } : undefined,
-            maxWidth: maxWidth ?? (compact ? 440 : 1800),
+            maxWidth: maxWidth ?? (compact ? 440 : CONTENT_COLUMN_WIDTH),
             maxHeight: compact
               ? "calc(100dvh - 32px)"
               : { xs: "100dvh", sm: "calc(100dvh - 64px)" },

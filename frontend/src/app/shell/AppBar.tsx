@@ -43,6 +43,7 @@ import { useAuthSession } from "features/session/public";
 import { SPONSOR_URL } from "shared/config/projectLinks";
 import { LibraryNavigation } from "features/library-navigation/public";
 import { SearchBar } from "features/search/public";
+import { PAGE_GUTTER } from "shared/ui/layout";
 
 const barSideSx: SxProps<Theme> = {
   display: "flex",
@@ -84,7 +85,7 @@ function ApplicationBar() {
         flexDirection: "row",
         alignItems: "center",
         justifyContent: "space-between",
-        px: { xs: 2, sm: 3, md: 6 },
+        px: PAGE_GUTTER,
         py: 0,
         height: 64,
         gap: { xs: 1, md: 3 },

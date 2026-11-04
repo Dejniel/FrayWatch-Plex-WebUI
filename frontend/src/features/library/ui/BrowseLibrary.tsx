@@ -25,6 +25,7 @@ import { useLibraryWindow } from "../model/useLibraryPages";
 import { useLibraryBrowseState } from "../model/useLibraryBrowseState";
 import { FolderBrowse } from "./FolderBrowse";
 import { QueryErrorAlert } from "shared/ui/QueryErrorAlert";
+import { CONTENT_COLUMN_WIDTH, PAGE_GUTTER } from "shared/ui/layout";
 
 interface BrowseLibraryProps {
   pageNavigation: React.ReactNode;
@@ -108,6 +109,8 @@ function BrowseLibraryContent({
         flexDirection: "column",
         alignItems: "flex-start",
         width: "100%",
+        maxWidth: activeView?.presentation === "list" ? CONTENT_COLUMN_WIDTH : undefined,
+        mx: "auto",
         minHeight: "calc(100vh - 64px)",
         mt: "64px",
       }}
@@ -128,7 +131,7 @@ function BrowseLibraryContent({
         />
       </Box>
 
-      <Box sx={{ width: "100%", px: { xs: 1, md: 6 }, pb: 2 }}>
+      <Box sx={{ width: "100%", px: PAGE_GUTTER, pb: 2 }}>
         <Box sx={{ width: "100%", mt: 2 }}>
           <QueryErrorAlert
             error={section.error}

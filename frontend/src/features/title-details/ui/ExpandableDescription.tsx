@@ -2,24 +2,17 @@ import { Box, Typography } from "@mui/material";
 import { alpha } from "@mui/material/styles";
 import React, { useEffect, useState } from "react";
 
-const DESKTOP_BREAKPOINT = "(min-width: 600px)";
-
 function ExpandableDescription({
   text,
   lines = 4,
-  minLines = 3,
-  boundaryRef,
   color = "text.secondary",
 }: {
   text?: string;
   lines?: number;
-  minLines?: number;
-  boundaryRef?: React.RefObject<HTMLDivElement | null>;
   color?: string;
 }) {
   const textRef = React.useRef<HTMLDivElement>(null);
   const [expanded, setExpanded] = useState(false);
-  const [maxLines, setMaxLines] = useState(lines);
   const [truncated, setTruncated] = useState(false);
 
   useEffect(() => {
@@ -32,23 +25,6 @@ function ExpandableDescription({
     let frame = 0;
 
     const measure = () => {
-      let nextLines = lines;
-      const boundary = boundaryRef?.current;
-
-      if (boundary && window.matchMedia(DESKTOP_BREAKPOINT).matches) {
-        const lineHeight = Number.parseFloat(
-          window.getComputedStyle(element).lineHeight,
-        );
-        const availableHeight =
-          boundary.getBoundingClientRect().bottom -
-          element.getBoundingClientRect().top;
-
-        if (Number.isFinite(lineHeight) && lineHeight > 0) {
-          nextLines = Math.max(minLines, Math.floor(availableHeight / lineHeight));
-        }
-      }
-
-      setMaxLines(nextLines);
       window.cancelAnimationFrame(frame);
       frame = window.requestAnimationFrame(() => {
         setTruncated(
@@ -60,7 +36,6 @@ function ExpandableDescription({
     measure();
     const resizeObserver = new ResizeObserver(measure);
     resizeObserver.observe(element);
-    if (boundaryRef?.current) resizeObserver.observe(boundaryRef.current);
     window.addEventListener("resize", measure);
 
     return () => {
@@ -68,21 +43,7 @@ function ExpandableDescription({
       resizeObserver.disconnect();
       window.removeEventListener("resize", measure);
     };
-  }, [boundaryRef, expanded, lines, minLines, text]);
-
-  useEffect(() => {
-    if (expanded) {
-      setTruncated(false);
-      return;
-    }
-
-    const frame = window.requestAnimationFrame(() => {
-      const element = textRef.current;
-      if (element)
-        setTruncated(element.scrollHeight > element.clientHeight + 1);
-    });
-    return () => window.cancelAnimationFrame(frame);
-  }, [expanded, maxLines, text]);
+  }, [expanded, lines, text]);
 
   if (!text) return null;
 
@@ -102,7 +63,7 @@ function ExpandableDescription({
             : {
                 overflow: "hidden",
                 display: "-webkit-box",
-                WebkitLineClamp: maxLines,
+                WebkitLineClamp: lines,
                 WebkitBoxOrient: "vertical",
               }),
         }}
