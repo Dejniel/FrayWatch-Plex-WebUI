@@ -1,10 +1,9 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { BigReader } from "shared/ui";
 import { LibraryScreen } from "features/library/public";
 import { TitleDetailsScreen } from "features/title-details/public";
 import { WatchTogetherFeature } from "features/watch-together/public";
 import {
-  ProfileBootstrapGate,
   SessionGate,
   useAuthSession,
   useServerSession,
@@ -16,10 +15,8 @@ import AppRoutes from "./AppRoutes";
 import { useBrowseSynchronization } from "./useBrowseSynchronization";
 
 function AppManager() {
-  const { loading } = useStartupState();
+  const loading = useStartupState((state) => state.loading);
   const serverName = useServerSession((state) => state.server?.friendlyName);
-  const [showApp, setShowApp] = React.useState(false);
-  const [fadeOut, setFadeOut] = React.useState(false);
 
   useEffect(() => {
     document.title = serverName
@@ -27,28 +24,11 @@ function AppManager() {
       : "FriWatch";
   }, [serverName]);
 
-  useEffect(() => {
-    if (loading) return;
-
-    setTimeout(() => {
-      setFadeOut(true);
-      setTimeout(() => setShowApp(true), 500);
-    }, 1000);
-  }, [loading]);
-
-  if (!showApp) {
-    return (
-      <div style={{ opacity: fadeOut ? 0 : 1, transition: "opacity 0.5s" }}>
-        <Startup />
-      </div>
-    );
-  }
+  if (loading) return <Startup />;
 
   return (
     <SessionGate>
-      <ProfileBootstrapGate>
-        <App />
-      </ProfileBootstrapGate>
+      <App />
     </SessionGate>
   );
 }

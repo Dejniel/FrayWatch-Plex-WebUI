@@ -70,6 +70,9 @@ horizontal overflow, action menus and scrolling after resize.
 Also check browser zoom at 125%, 150% and 200%, increased default text size, and
 minimum/maximum card sizes. Verify readable captions, separated virtual rows,
 dialog scrolling and shared card sizing between Home and libraries.
+With slow authentication and profile settings, verify that the startup spinner
+keeps animating without restarting between stages. Check profile changes during
+loading, cached settings after failure, and Retry.
 
 For music/photo libraries, check artist → album → tracks, disc order, playback
 during navigation, queue add/remove/reorder and repeated songs. Include native

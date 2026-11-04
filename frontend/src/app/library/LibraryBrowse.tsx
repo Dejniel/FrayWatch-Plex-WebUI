@@ -4,9 +4,9 @@ import {
   Box,
   Button,
   ButtonGroup,
-  CircularProgress,
   MenuItem,
   Select,
+  Skeleton,
 } from "@mui/material";
 import { AnimatePresence } from "motion/react";
 import {
@@ -20,6 +20,7 @@ import { WatchlistView } from "features/watchlist/routes";
 import { MediaListsView } from "features/media-lists/routes";
 import { BrowseRecommendations, BrowseLibrary } from "features/library/public";
 import { libraryViewTo } from "shared/lib/navigation";
+import { PAGE_GUTTER } from "shared/ui/layout";
 import {
   libraryViews,
   useLibraries,
@@ -176,8 +177,16 @@ function LibraryBrowse() {
 
   if (libraries.isPending)
     return (
-      <Box sx={{ mt: 12, mx: "auto" }}>
-        <CircularProgress />
+      <Box
+        role="status"
+        aria-label="Loading library"
+        sx={{ mt: "80px", px: PAGE_GUTTER, width: "100%" }}
+      >
+        <Skeleton
+          variant="rounded"
+          sx={{ width: "min(480px, 100%)", height: 40, mb: 3 }}
+        />
+        <Skeleton variant="rounded" sx={{ height: "min(55vh, 480px)" }} />
       </Box>
     );
   if (libraries.isError && !library)

@@ -1,11 +1,12 @@
 import { Alert, Box, Button, CircularProgress } from "@mui/material";
 import { ReactNode, useEffect } from "react";
 import { useAuthSession } from "../model/authSession";
+import { useProfileBootstrap } from "../model/useProfileBootstrap";
 import { PLEX_SESSION_INVALID_EVENT } from "../model/sessionEvents";
 import LoginScreen from "./LoginScreen";
 import ProfilePickerScreen from "./ProfilePickerScreen";
 
-export function LoadingScreen() {
+function LoadingScreen() {
   return (
     <Box
       sx={{
@@ -16,13 +17,14 @@ export function LoadingScreen() {
         bgcolor: "background.default",
       }}
     >
-      <CircularProgress />
+      <CircularProgress aria-label="Loading session" />
     </Box>
   );
 }
 
 export default function SessionGate({ children }: { children: ReactNode }) {
   const { status, error, initialize, signOut } = useAuthSession();
+  const profile = useProfileBootstrap();
 
   useEffect(() => {
     initialize();
@@ -36,7 +38,8 @@ export default function SessionGate({ children }: { children: ReactNode }) {
     return () => window.removeEventListener(PLEX_SESSION_INVALID_EVENT, revalidate);
   }, [initialize]);
 
-  if (status === "initializing") return <LoadingScreen />;
+  if (status === "initializing" || (status === "ready" && profile.pending))
+    return <LoadingScreen />;
   if (status === "signedOut") return <LoginScreen />;
   if (status === "selectingProfile" || status === "unlocking")
     return <ProfilePickerScreen />;
@@ -68,5 +71,32 @@ export default function SessionGate({ children }: { children: ReactNode }) {
     );
   }
 
-  return <>{children}</>;
+  return (
+    <>
+      {profile.error && (
+        <Box
+          sx={{
+            position: "fixed",
+            top: 72,
+            left: "50%",
+            transform: "translateX(-50%)",
+            maxWidth: "calc(100% - 32px)",
+            zIndex: 1500,
+          }}
+        >
+          <Alert
+            severity="warning"
+            action={
+              <Button color="inherit" size="small" onClick={profile.retry}>
+                Retry
+              </Button>
+            }
+          >
+            {profile.error}
+          </Alert>
+        </Box>
+      )}
+      {children}
+    </>
+  );
 }

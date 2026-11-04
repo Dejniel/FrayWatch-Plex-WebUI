@@ -42,6 +42,11 @@ the current authenticated Plex request context across layers. Files inside the
 same feature use direct relative imports so their ownership is visible and
 barrel-file cycles are avoided.
 
+`SessionGate` keeps one loading screen through authentication and profile settings.
+Its headless profile bootstrap resets settings on session changes; the settings
+store rejects stale loads and falls back to cached or default settings with a
+retryable warning.
+
 Entities expose their supported UI through `public.ts` and may additionally
 expose a headless `model.ts` entry point. API and model code should use the
 headless entry point when importing `public.ts` would also load UI dependencies.

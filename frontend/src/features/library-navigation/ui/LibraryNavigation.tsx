@@ -6,7 +6,6 @@ import {
 import {
   Box,
   Button,
-  CircularProgress,
   Divider,
   IconButton,
   List,
@@ -15,6 +14,7 @@ import {
   ListItemIcon,
   ListItemText,
   Popover,
+  Skeleton,
   Tooltip,
   Typography,
 } from "@mui/material";
@@ -149,6 +149,7 @@ function DesktopLibraries({
       ref={toolbarRef}
       role="navigation"
       aria-label="Libraries"
+      aria-busy={!loaded}
       sx={{
         display: "flex",
         alignItems: "center",
@@ -160,7 +161,7 @@ function DesktopLibraries({
         overflow: "clip",
       }}
     >
-      {!loaded && <CircularProgress size={20} />}
+      {!loaded && <Skeleton variant="rounded" width={112} height={28} />}
       {pinned.map((library) => (
         <LibraryLink
           key={library.key}
@@ -194,8 +195,8 @@ function MobileLibraries({
   return (
     <>
       {!loaded && (
-        <ListItem>
-          <CircularProgress size={20} />
+        <ListItem aria-label="Loading libraries" aria-busy>
+          <Skeleton variant="rounded" width={120} height={32} />
         </ListItem>
       )}
       {pinned.map((library) => (
